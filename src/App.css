@@ -1,1 +1,25 @@
 @import "tailwindcss";
+
+*{
+  box-sizing: border-box;
+}
+
+@layer components{
+    .navBar{
+        @apply flex justify-between items-center sm:block;
+    }
+}
+
+
+
+@layer base{
+    .navList{
+        @apply hidden sm:flex items-center justify-between gap-10;
+    }
+    .mobileNavList{
+        @apply rounded-l fixed top-0 right-0 h-55 w-50 bg-white shadow-xl p-3 
+    }
+    .navList > li{
+            @apply text-[40px] sm:text-[12px]
+        }
+}

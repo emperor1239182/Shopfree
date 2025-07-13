@@ -1,0 +1,131 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Iphone14",
+            "price": "$100",
+            "category": "Phones",
+            "image": "/public/images/Iphone.png"
+        },
+        {
+            "id": 2,
+            "name": "Havit Hv-092 Gamepad",
+            "price": "$120",
+            "category": "Gaming",
+            "image": "/public/images/Red ps pad.png"
+        },
+        {
+            "id": 3,
+            "name": "Ak-900 Wired Keyboard",
+            "price": "$960",
+            "category": "Computers",
+            "image": "/public/images/Keyboard.png"
+        },
+        {
+            "id": 4,
+            "name": "Ips LCD Gaming Monitor",
+            "price": "$270",
+            "category": "Gaming",
+            "image": "/public/images/Tv.png"
+        },
+        {
+            "id": 5,
+            "name": "S-Series Comfort Chair",
+            "price": "$345",
+            "category": "Funitures",
+            "image": "/public/images/Chair.png"
+        },
+        {
+            "id": 6,
+            "name": "The North Coat",
+            "price": "$260",
+            "category": "Clothings",
+            "image": "/public/images/Pink.png"
+        },
+        {
+            "id": 7,
+            "name": "Gucci Duffle Bag",
+            "price": "$110",
+            "category": "Clothings",
+            "image": "/public/images/Gucci bag.png"
+        },
+        {
+            "id": 8,
+            "name": "RGB Liquid CPU Cooler",
+            "price": "$220",
+            "category": "Computers",
+            "image": "/public/images/Home theater.png"
+        },
+        {
+            "id": 9,
+            "name": "Small Bookshelf",
+            "price": "$100",
+            "category": "Funitures",
+            "image": "/public/images/Book shelf.png"
+        },
+        {
+            "id": 10,
+            "name": "JBL Speaker",
+            "price": "$330",
+            "category": "Headphones",
+            "image": "/public/images/Jbl speaker.png"
+        },
+        {
+            "id": 11,
+            "name": "CANON EOS DSLR Camera",
+            "price": "$360",
+            "category": "Cameras",
+            "image": "/public/images/Camera.png"
+        },
+        {
+            "id": 12,
+            "name": "ASUS FHD Gaming Laptop",
+            "price": "$700",
+            "category": "Computers",
+            "image": "/public/images/Laptop.png"
+        },
+        {
+            "id": 13,
+            "name": "Perfume Set",
+            "price": "$500",
+            "category": "Clothings",
+            "image": "/public/images/Perfume.png"
+        },
+        {
+            "id": 14,
+            "name": "Kids Electric Car",
+            "price": "$960",
+            "category": "Gaming",
+            "image": "/public/images/Red car.png"
+        },
+        {
+            "id": 15,
+            "name": "Jr. Zoom Soccer Cleats",
+            "price": "$1160",
+            "category": "Clothings",
+            "image": "/public/images/Soccer boot.png"
+        },
+        {
+            "id": 16,
+            "name": "GP11 Shooter USB Gamepad",
+            "price": "$350",
+            "category": "Gaming",
+            "image": "/public/images/Black ps pad.png"
+        },
+        {
+            "id": 17,
+            "name": "Quilted Satin Jacket",
+            "price": "$660",
+            "category": "Clothings",
+            "image": "/public/images/Green jacket.png"
+        },
+        {
+            "id": 18,
+            "name": "Play Station 5",
+            "price": "$100",
+            "category": "Gaming",
+            "image": "/public/images/Ps5 set.png"
+        }
+        
+    ]
+}
