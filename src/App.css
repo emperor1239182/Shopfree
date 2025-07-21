@@ -4,6 +4,17 @@
   box-sizing: border-box;
 }
 
+@layer utilities {
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
 @layer components{
     .navBar{
         @apply flex justify-between items-center sm:block w-[100%] sticky px-6 py-3;
@@ -31,4 +42,8 @@
         .date{
             @apply text-lg font-bold
         }
+        .viewAll{
+            @apply bg-red-500 text-center p-1 rounded w-30 text-[9px] m-auto
+        }
 }
+
