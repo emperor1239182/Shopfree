@@ -9,5 +9,4 @@ export type allProducts = {
 }
 export type product = {
     products : allProducts [];
-    scrollRef?: React.RefObject<HTMLUListElement>;
 }

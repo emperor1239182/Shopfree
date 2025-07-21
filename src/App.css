@@ -45,5 +45,8 @@
         .viewAll{
             @apply bg-red-500 text-center p-1 rounded w-30 text-[9px] m-auto
         }
+        .addToCart{
+            @apply bg-black text-white text-center text-[10px] absolute bottom-0 left-0 right-0 p-1
+        }
 }
 
