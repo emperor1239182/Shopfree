@@ -28,21 +28,12 @@
             "image": "/public/images/Keyboard.png"
         },
         {
-            "id": 4,
-            "name": "Ips LCD Gaming Monitor",
-            "price": "$270",
-            "oldPrice" : "$800",
-            "discount" : "-25%",
-            "category": "Gaming",
-            "image": "/public/images/Tv.png"
-        },
-        {
             "id": 5,
             "name": "S-Series Comfort Chair",
             "price": "$345",
             "oldPrice" : "$730",
             "discount" : "-25%",
-            "category": "Funitures",
+            "category": "Furnitures",
             "image": "/public/images/Chair.png"
         },
         {
@@ -53,6 +44,15 @@
             "discount" : "-55%",
             "category": "Clothings",
             "image": "/public/images/Pink sweater.png"
+        },
+         {
+            "id": 11,
+            "name": "CANON EOS DSLR Camera",
+            "price": "$360",
+            "oldPrice" : "$730",
+            "discount" : "-62%",
+            "category": "Cameras",
+            "image": "/public/images/Camera.png"
         },
         {
             "id": 7,
@@ -78,7 +78,7 @@
             "price": "$100",
             "oldPrice" : "$310",
             "discount" : "-15%",
-            "category": "Funitures",
+            "category": "Furnitures",
             "image": "/public/images/Book shelf.png"
         },
         {
@@ -91,15 +91,6 @@
             "image": "/public/images/Jbl speaker.png"
         },
         {
-            "id": 11,
-            "name": "CANON EOS DSLR Camera",
-            "price": "$360",
-            "oldPrice" : "$730",
-            "discount" : "-62%",
-            "category": "Cameras",
-            "image": "/public/images/Camera.png"
-        },
-        {
             "id": 12,
             "name": "ASUS FHD Gaming Laptop",
             "price": "$700",
@@ -107,6 +98,15 @@
             "discount" : "-90%",
             "category": "Computers",
             "image": "/public/images/Laptop.png"
+        },
+        {
+            "id": 4,
+            "name": "Ips LCD Gaming Monitor",
+            "price": "$270",
+            "oldPrice" : "$800",
+            "discount" : "-25%",
+            "category": "Gaming",
+            "image": "/public/images/Tv.png"
         },
         {
             "id": 13,

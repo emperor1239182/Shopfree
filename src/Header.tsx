@@ -3,10 +3,13 @@ import { Link } from "react-router-dom"
 import { FaApple, FaArrowRight } from "react-icons/fa6"
 import { Products } from "./FlashSale"
 import { Categories } from "./Categories"
+import { BestSellingProducts } from "./BestSelling"
+import { OurProducts } from "./OurProducts"
 
 export const Header = ()=> {
   const [products, setProducts] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
+   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
     const getProducts = async () => {
         try{
@@ -28,6 +31,31 @@ export const Header = ()=> {
         getProducts();
     }, []);
 
+    useEffect(() => {
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 6);
+    
+        const interval = setInterval(() => {
+          const now = new Date();
+          const timeDifference = targetDate.getTime() - now.getTime();
+    
+          if (timeDifference <= 0) {
+            clearInterval(interval);
+            setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+            return;
+          }
+    
+          const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+    
+          setTimeLeft({ days, hours, minutes, seconds });
+        }, 1000);
+    
+        return () => clearInterval(interval);
+      }, []);
+        
  
 
 
@@ -45,15 +73,30 @@ export const Header = ()=> {
                    <p>Up to 10% off Voucher</p>
                    <Link to="/about" className="text-[12px] flex items-center gap-2 underline">shop now <FaArrowRight/></Link>
                 </div>
-                <img src="/public/images/Iphone.png" className="max-w-[140px] "/>
+                <img src="/public/images/Iphone.png" className="w-[120px] sm:w-[240px] "/>
             </div>
         </header>
 
         <Products products={products} /> 
              <Categories products={products}/>
+             <BestSellingProducts products={products}/>
 
+             <div className="adds mt-10 flex-col sm:flex-row">
+                <div className="addsText"> 
+                    <p className="text-[10px] text-green-400 font-bold">Categories</p>
+                   <p className="flex items-center gap-4 "> Enhance Your Music Experience </p>
+                   <div className=" flex text-center text-[7px] font-semibold gap-1">
+              <p className=" rounded-4xl bg-gray-200 p-3 text-black">  Days <br/> <span className="date">{timeLeft.days.toString().padStart(2, "0")} </span></p> 
+               <p className= "rounded-4xl bg-gray-200 p-3 text-black">Hours <br/> <span className="date">{timeLeft.hours }   </span></p> 
+                <p className="rounded-4xl bg-gray-200 p-3 text-black">Minutes <br/> <span className="date">{timeLeft.minutes} </span></p> 
+                 <p className="rounded-4xl bg-gray-200 p-3 text-black">Seconds <br/> <span className="date">{timeLeft.seconds} </span></p>
+            </div>
+                   <Link to="/about" className="text-[12px] bg-green-400 text-center w-30 p-3 ">Buy now </Link>
+                </div>
+                <img src="/public/images/Jbl speaker.png" className="max-w-[240px] self-start"/>
+            </div>
 
-
+            <OurProducts products={products}/>
 
         </main>
         </>

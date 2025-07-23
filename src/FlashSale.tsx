@@ -62,7 +62,7 @@ export const Products = ({products}: product)=>{
                 </section>
 
         <div className="mt-5  ">
-            <ul className="hide-scrollbar flex gap-4 overflow-auto" ref={scrollRefs.flashSales}>
+            <ul className="hide-scrollbar productList" ref={scrollRefs.flashSales}>
             {products.slice(1,9).map((goods)=>(
                 <li key={goods.id}>
 

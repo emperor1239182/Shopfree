@@ -16,9 +16,9 @@ const ScrollContext = createContext<ScrollContextType>(null);
 export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const scrollRefs: ScrollRefs = {
     flashSales: useRef<HTMLUListElement>(null),
-    trending: useRef<HTMLUListElement>(null),
+    ourProducts: useRef<HTMLUListElement>(null),
     newArrivals: useRef<HTMLUListElement>(null),
-    // Add more if needed
+    categories: useRef<HTMLUListElement>(null),
   };
 
   const scrollLeft = (id: keyof typeof scrollRefs) => {

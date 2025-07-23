@@ -14,13 +14,17 @@
   }
 }
 
+.grid-container{
+    grid-auto-rows: 0;
+}
+
 
 @layer components{
     .navBar{
         @apply flex justify-between items-center sm:block w-[100%] sticky px-6 py-3;
     }
     .adds{
-        @apply flex bg-black text-white justify-between sm:justify-around w-full px-5 py-10 mt-1 h-[40vh];
+        @apply flex bg-black text-white justify-between sm:justify-around w-full px-5 py-10 mt-1 ;
     }
 }
 
@@ -40,13 +44,16 @@
             @apply text-xl sm:text-4xl w-[45%] flex flex-col gap-3
         }
         .date{
-            @apply text-lg font-bold
+            @apply text-lg font-bold 
         }
         .viewAll{
             @apply bg-red-500 text-center p-1 rounded w-30 text-[9px] m-auto
         }
         .addToCart{
             @apply bg-black text-white text-center text-[10px] absolute bottom-0 left-0 right-0 p-1
+        }
+        .productList{
+            @apply  flex gap-4 overflow-auto
         }
 }
 
