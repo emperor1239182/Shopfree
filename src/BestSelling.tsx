@@ -1,5 +1,5 @@
 import type { product } from "./typeSet"
-import { FaHeart, FaEye, FaStar } from "react-icons/fa6"
+import { FiHeart, FiEye, FiStar } from "react-icons/fi"
 
 export const BestSellingProducts = ({products} : product)=>{
     return (
@@ -23,17 +23,17 @@ export const BestSellingProducts = ({products} : product)=>{
                         <div className="relative w-40 bg-gray-100 p-5">
                     <img src={goods.image} className=" object-cover"/>
                     <div className="absolute top-0 right-2">
-                    <div className="mt-3 rounded-2xl bg-white p-1"><FaHeart size={15}/></div>
-                    <div className="mt-3 rounded-2xl bg-white p-1"><FaEye size={15} /></div>
+                    <div className="mt-3 rounded-2xl bg-white p-1"><FiHeart size={15}/></div>
+                    <div className="mt-3 rounded-2xl bg-white p-1"><FiEye size={15} /></div>
                     </div>
                     </div>
 
                     <p className="text-[10px] font-bold">{goods.name}</p>
                     <p className="text-[10px] text-red-400">{goods.price} <span className="text-gray-600 ml-2 line-through font-bold">{goods.oldPrice} </span></p>
                     <div className="flex">
-                    <FaStar color="gold" size={8}/>
-                    <FaStar color="gold" size={8}/>
-                    <FaStar color="gold" size={8}/>
+                    <FiStar color="gold" size={8}/>
+                    <FiStar color="gold" size={8}/>
+                    <FiStar color="gold" size={8}/>
                     </div>
 
                     </div>

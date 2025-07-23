@@ -1,23 +1,22 @@
 import type { product } from "./typeSet"
-import { MdCameraAlt, MdComputer, MdWatch } from "react-icons/md";
-import { FaHeadphones, FaGamepad, FaMobile,  FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FiCamera, FiMonitor, FiWatch, FiHeadphones, FiSmartphone, FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { GiTShirt, GiSofa } from "react-icons/gi";
 import { useScroll } from './ScrollContext';
+import { LuGamepad } from "react-icons/lu";
 
 
 export const Categories = ({products} : product)=>{
      const { scrollRefs, scrollLeft, scrollRight } = useScroll();
     
     const categoryIcons = {
-  Phones: FaMobile,
-  Gaming: FaGamepad,
-  Computers: MdComputer,
+  Phones: FiSmartphone,
+  Computers: FiMonitor,
   Clothings: GiTShirt,
-  Headphones: FaHeadphones,
-  Cameras: MdCameraAlt,
-  Watches: MdWatch,
+  Gaming: LuGamepad,
+  Headphones: FiHeadphones,
+  Cameras: FiCamera,
+  Watches: FiWatch,
   Furnitures: GiSofa
-  
 };
 
 
@@ -29,8 +28,8 @@ export const Categories = ({products} : product)=>{
             <div className="flex items-center justify-between gap-6 ">
             <h3 className="font-bold">Browse By Category</h3>
             <div className="flex gap-3.5">
-        <FaArrowLeft className="rounded-xl bg-gray-200 sm:hidden" onClick={() => scrollLeft('categories')}/>
-            <FaArrowRight className="rounded-xl bg-gray-200 sm:hidden" onClick={() => scrollRight('categories')} />
+        <FiArrowLeft className="rounded-xl bg-gray-200 sm:hidden" onClick={() => scrollLeft('categories')}/>
+            <FiArrowRight className="rounded-xl bg-gray-200 sm:hidden" onClick={() => scrollRight('categories')} />
         </div>
              </div>
         </section>
