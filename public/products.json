@@ -28,16 +28,16 @@
             "image": "/public/images/Keyboard.png"
         },
         {
-            "id": 5,
+            "id": 4,
             "name": "S-Series Comfort Chair",
             "price": "$345",
             "oldPrice" : "$730",
             "discount" : "-25%",
             "category": "Furnitures",
-            "image": "/public/images/Chair.png"
+            "image": "/public/images/furniture.png"
         },
         {
-            "id": 6,
+            "id": 5,
             "name": "The North Coat",
             "price": "$260",
             "oldPrice" : "$560",
@@ -46,7 +46,7 @@
             "image": "/public/images/Pink sweater.png"
         },
          {
-            "id": 11,
+            "id": 6,
             "name": "CANON EOS DSLR Camera",
             "price": "$360",
             "oldPrice" : "$730",
@@ -91,7 +91,7 @@
             "image": "/public/images/Jbl speaker.png"
         },
         {
-            "id": 12,
+            "id": 11,
             "name": "ASUS FHD Gaming Laptop",
             "price": "$700",
             "oldPrice" : "$2000",
@@ -100,7 +100,7 @@
             "image": "/public/images/Laptop.png"
         },
         {
-            "id": 4,
+            "id": 12,
             "name": "Ips LCD Gaming Monitor",
             "price": "$270",
             "oldPrice" : "$800",
@@ -137,6 +137,15 @@
         },
         {
             "id": 16,
+            "name": "Amazon Speakers",
+            "price": "$190",
+            "oldPrice" : "$5550",
+            "discount" : "-100%",
+            "category": "Computers",
+            "image": "/public/images/Speakers.png"
+        },
+        {
+            "id": 17,
             "name": "GP11 Shooter USB Gamepad",
             "price": "$350",
             "oldPrice" : "$400",
@@ -145,7 +154,7 @@
             "image": "/public/images/Black ps pad.png"
         },
         {
-            "id": 17,
+            "id": 19,
             "name": "Quilted Satin Jacket",
             "price": "$660",
             "oldPrice" : "$975",
@@ -154,7 +163,7 @@
             "image": "/public/images/Green jacket.png"
         },
         {
-            "id": 18,
+            "id": 20,
             "name": "Play Station 5",
             "price": "$100",
             "oldPrice" : "$220",

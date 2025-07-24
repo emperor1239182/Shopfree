@@ -23,9 +23,9 @@ export const Categories = ({products} : product)=>{
     return (
         <>
        <section className="categories mt-15">
-            <p className="border-l-8 text-red-500 text-[11px]">categories</p>
+            <p className="border-l-8 text-red-500 text-[11px]">Categories</p>
 
-            <div className="flex items-center justify-between gap-6 ">
+            <div className="intro">
             <h3 className="font-bold">Browse By Category</h3>
             <div className="flex gap-3.5">
         <FiArrowLeft className="rounded-xl bg-gray-200 sm:hidden" onClick={() => scrollLeft('categories')}/>
@@ -36,7 +36,7 @@ export const Categories = ({products} : product)=>{
 
         <div className="mt-5">
              <ul className="productList hide-scrollbar"  ref={scrollRefs.categories}>
-            {products.slice(0,6).map((goods)=>{
+            {products.slice(0,8).map((goods)=>{
                 const Icon = categoryIcons[goods.category];
                 return (
                 <li key={goods.id} className="border-2 border-gray-200 text-center p-3"> 

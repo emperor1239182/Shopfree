@@ -5,6 +5,7 @@ import { Products } from "./FlashSale"
 import { Categories } from "./Categories"
 import { BestSellingProducts } from "./BestSelling"
 import { OurProducts } from "./OurProducts"
+import { NewArrivals } from "./NewArrival"
 
 export const Header = ()=> {
   const [products, setProducts] = useState([]);
@@ -97,6 +98,7 @@ export const Header = ()=> {
             </div>
 
             <OurProducts products={products}/>
+            <NewArrivals/>
 
         </main>
         </>

@@ -39,9 +39,9 @@ export const Products = ({products}: product)=>{
     return (
         <>
                 <section className="today mt-15">
-                    <p className="border-l-8 text-red-500 text-[11px]">Today's</p>
+                    <p className="border-l-8 text-red-500 text-[11px] font-bold">Today's</p>
         
-                    <div className="flex items-center justify-between gap-6 ">
+                    <div className="intro">
         
                         <div className="flex gap-3 sm:gap-10 items-center">
                     <h3 className="font-bold">Flash Sales</h3>
@@ -63,13 +63,13 @@ export const Products = ({products}: product)=>{
 
         <div className="mt-5  ">
             <ul className="hide-scrollbar productList" ref={scrollRefs.flashSales}>
-            {products.slice(1,9).map((goods)=>(
+            {products.slice(1,10).map((goods)=>(
                 <li key={goods.id}>
 
                     <div className="w-40">
 
                         <div className="relative w-40 bg-gray-100 p-5">
-                    <img src={goods.image} className=" object-cover"/>
+                    <img src={goods.image} className=" object-fit h-30"/>
                     <div className="absolute top-0 right-2">
                     <div className="mt-3 rounded-2xl bg-white p-1"><FiHeart size={15}/></div>
                     <div className="mt-3 rounded-2xl bg-white p-1"><FiEye size={15} /></div>

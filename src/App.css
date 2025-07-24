@@ -26,6 +26,9 @@
     .adds{
         @apply flex bg-black text-white justify-between sm:justify-around w-full px-5 py-10 mt-1 ;
     }
+    .newArrivals{
+        @apply grid grid-cols-2
+    }
 }
 
 
@@ -54,6 +57,18 @@
         }
         .productList{
             @apply  flex gap-4 overflow-auto
+        }
+        .intro{
+           @apply flex items-center justify-between gap-6 mt-3
+        }
+        .arrivalProducts{
+            @apply bg-black text-white
+        }
+        .arrivalProducts > img{
+            @apply -z-10 max-w-[250px] object-cover
+        }
+        .addsDetails {
+            @apply flex flex-col gap-2
         }
 }
 
