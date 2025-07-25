@@ -23,7 +23,7 @@ export const Categories = ({products} : product)=>{
     return (
         <>
        <section className="categories mt-15">
-            <p className="border-l-8 text-red-500 text-[11px]">Categories</p>
+            <p className="tag">Categories</p>
 
             <div className="intro">
             <h3 className="font-bold">Browse By Category</h3>

@@ -3,12 +3,12 @@ export const NewArrivals = ()=>{
     return(
         <>
         <section className=" mt-15">
-                    <p className="border-l-8 text-red-500 text-[11px]">Featured</p>
+                    <p className="tag">Featured</p>
                     <h3 className="font-bold">New Arrival</h3>
 
                     <div className="newArrivals">
 
-                    <div className="arrivalProducts">
+                    <div className="arrivalProducts row-span-2">
                         <img src="/public/images/Ps5 set.png"/>
                         <div className="addsDetails">
                             <h4 className="font-bold">PlayStation 5</h4>
@@ -17,13 +17,13 @@ export const NewArrivals = ()=>{
                         </div>
                     </div>
 
-                    <div className="flex bg-black text-white">
-                        <div>
-                            <p>Women's Collections</p>
-                            <p>Featured womens collection that gives you another vibe.</p>
-                            <Link to="/">Shop Now</Link>
+                    <div className="flex justify-between bg-black text-white col-span-2 px-2 relative">
+                        <div className=" w-[60%] addsDetails relative mt-20">
+                            <p className="font-bold sm:text-xl">Women's Collections</p>
+                            <p className="text-[8px] sm:text-[12px]">Featured womens collection that gives you another vibe.</p>
+                            <Link to="/" className="text-[8px] sm:text-[12px] font-bold">Shop Now</Link>
                         </div>
-                        <img src="/public/images/womanWearingHat.png" className="max-w-[200px]"/>
+                        <img src="/public/images/womanWearingHat.png" className="max-w-[100px] sm:max-w-[300px] object-cover"/>
                     </div>
 
                     <div className="arrivalProducts">
@@ -31,7 +31,7 @@ export const NewArrivals = ()=>{
                         <div className="addsDetails">
                             <h4 className="font-bold">Speakers</h4>
                             <p>Amazon wireless speakers</p>
-                            <Link to="/">Shop Now</Link>
+                            <Link to="/" className="font-bold">Shop Now</Link>
                         </div>
                     </div>
 
@@ -40,7 +40,7 @@ export const NewArrivals = ()=>{
                         <div className="addsDetails">
                             <h4 className="font-bold">Perfume</h4>
                             <p>GUCCI INTENSE OUD EDP</p>
-                            <Link to="/">Shop Now</Link>
+                            <Link to="/" className="font-bold">Shop Now</Link>
                         </div>
                     </div>
 

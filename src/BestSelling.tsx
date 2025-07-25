@@ -5,7 +5,7 @@ export const BestSellingProducts = ({products} : product)=>{
     return (
         <>
         <section className="categories mt-15">
-            <p className="border-l-8 text-red-500 text-[11px]">This Month</p>
+            <p className="tag">This Month</p>
 
             <div className="intro">
             <h3 className="font-bold">Best Selling Products</h3>
@@ -21,7 +21,7 @@ export const BestSellingProducts = ({products} : product)=>{
                     <div className="w-40">
 
                         <div className="relative w-40 bg-gray-100 p-5">
-                    <img src={goods.image} className=" object-fit h-30"/>
+                    <img src={goods.image} className=" object-contain h-30"/>
                     <div className="absolute top-0 right-2">
                     <div className="mt-3 rounded-2xl bg-white p-1"><FiHeart size={15}/></div>
                     <div className="mt-3 rounded-2xl bg-white p-1"><FiEye size={15} /></div>

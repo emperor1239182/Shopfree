@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { FaApple, FaArrowRight } from "react-icons/fa6"
+import { FaApple, FaArrowRight, FaCar, FaHeadphones, FaCheck } from "react-icons/fa6"
 import { Products } from "./FlashSale"
 import { Categories } from "./Categories"
 import { BestSellingProducts } from "./BestSelling"
@@ -58,10 +58,31 @@ export const Header = ()=> {
       }, []);
         
  
+      const icons = [ <FaCar/>, <FaHeadphones/>, <FaCheck/> ]
 
+      const guarantees = {
+         
+            Cars: {
+            icon: icons[0],
+            hint: "FREE AND FAST DELIVERY",
+            goal: "Free delivery for all oders over $140"
+            },
 
+            Headphone: {
+            icon: icons[1],
+            hint: "24/7 CUSTOMER SERVICE",
+            goal: "Friendly 24/7 customer support"
+            },
 
+            Check: {
+            icon: icons[2],
+            hint: "MONEY BACK GUARANTEE",
+            goal: "We rerun money within 30 days"
+            }
+        
+      }
 
+      
     return (
         <>
         <main className="px-3">
@@ -100,6 +121,15 @@ export const Header = ()=> {
             <OurProducts products={products}/>
             <NewArrivals/>
 
+            <div className="flex gap-4 flex-wrap justify-center mt-6">
+                {Object.entries(guarantees).map(([key, value]) => (
+                  <div key={key} className=" border rounded-lg p-4 flex flex-col items-center min-w-[180px] bg-white shadow-sm">
+                    <div className="mb-2 text-2xl">{value.icon}</div>
+                    <div className="font-bold text-xs mb-1 text-center">{value.hint}</div>
+                    <div className="text-[10px] text-gray-500 text-center">{value.goal}</div>
+                  </div>
+                ))}
+            </div>
         </main>
         </>
     )

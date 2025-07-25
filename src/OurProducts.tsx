@@ -6,7 +6,7 @@ export const OurProducts = ({products})=>{
     return (
         <>
          <section className="categories mt-15">
-                     <p className="border-l-8 text-red-500 text-[11px]">Our Products</p>
+                     <p className="tag">Our Products</p>
          
                      <div className="intro">
                      <h3 className="font-bold">Explore Our Products</h3>
@@ -18,14 +18,14 @@ export const OurProducts = ({products})=>{
                  </section>
 
              <div className="mt-5  ">
-            <ul className="hide-scrollbar grid grid-rows-2 auto-cols-[minmax(160px,_1fr)] grid-flow-col gap-5  overflow-auto" ref={scrollRefs.ourProducts}>
+            <ul className="hide-scrollbar grid grid-rows-2 auto-cols-[minmax(160px,_1fr)] grid-flow-col gap-5 overflow-auto" ref={scrollRefs.ourProducts}>
             {products.map((goods)=>(
                 <li key={goods.id}>
 
                     <div className="w-40">
 
                         <div className="relative w-40 bg-gray-100 p-5">
-                    <img src={goods.image} className="object-fit h-30"/>
+                    <img src={goods.image} className="object-contain h-30"/>
                     <div className="absolute top-0 right-2">
                     <div className="mt-3 rounded-2xl bg-white p-1"><FiHeart size={15}/></div>
                     <div className="mt-3 rounded-2xl bg-white p-1"><FiEye size={15}/></div>
