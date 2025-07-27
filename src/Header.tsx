@@ -6,6 +6,7 @@ import { Categories } from "./Categories"
 import { BestSellingProducts } from "./BestSelling"
 import { OurProducts } from "./OurProducts"
 import { NewArrivals } from "./NewArrival"
+import { Footer } from "./Footer"
 
 export const Header = ()=> {
   const [products, setProducts] = useState([]);
@@ -130,6 +131,8 @@ export const Header = ()=> {
                   </div>
                 ))}
             </div>
+
+            <Footer/>
         </main>
         </>
     )

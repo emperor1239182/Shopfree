@@ -13,7 +13,7 @@ export const NewArrivals = ()=>{
                         <div className="addsDetails">
                             <h4 className="font-bold">PlayStation 5</h4>
                             <p>Black and white version of the PS5 coming out on sale</p>
-                            <Link to="/contact">Shop Now</Link>
+                            <Link to="/contact" className="font-extrabold ">Shop Now</Link>
                         </div>
                     </div>
 
@@ -31,7 +31,7 @@ export const NewArrivals = ()=>{
                         <div className="addsDetails">
                             <h4 className="font-bold">Speakers</h4>
                             <p>Amazon wireless speakers</p>
-                            <Link to="/" className="font-bold">Shop Now</Link>
+                            <Link to="/" className="font-extrabold">Shop Now</Link>
                         </div>
                     </div>
 
@@ -40,7 +40,7 @@ export const NewArrivals = ()=>{
                         <div className="addsDetails">
                             <h4 className="font-bold">Perfume</h4>
                             <p>GUCCI INTENSE OUD EDP</p>
-                            <Link to="/" className="font-bold">Shop Now</Link>
+                            <Link to="/" className="font-extrabold">Shop Now</Link>
                         </div>
                     </div>
 

@@ -25,6 +25,19 @@
     .newArrivals{
         @apply grid grid-cols-3 gap-3 w-auto 
     }
+    .footer{
+        @apply grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-4 bg-black text-white text-[11px] mt-15 p-8 items-center
+    }
+    .input{
+        @apply border-b-1 placeholder:text-[10px]
+    }
+    .register{
+        @apply flex gap-12 items-center justify-center  mt-15 p-3
+    }
+    .signUp{
+        @apply w-[400px] lg:w-[600px] flex flex-col gap-3
+    }
+
 }
 
 
@@ -71,6 +84,9 @@
         }
         .guarantyLists{
             @apply flex justify-between gap-6 items-center
+        }
+        .footerContent > *{
+            @apply mt-3
         }
 }
 
