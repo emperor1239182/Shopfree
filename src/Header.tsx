@@ -8,10 +8,13 @@ import { OurProducts } from "./OurProducts"
 import { NewArrivals } from "./NewArrival"
 import { Footer } from "./Footer"
 
+
 export const Header = ()=> {
   const [products, setProducts] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
    const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+   
 
     const getProducts = async () => {
         try{
@@ -116,18 +119,18 @@ export const Header = ()=> {
             </div>
                    <Link to="/about" className="text-[12px] bg-green-400 text-center w-30 p-3 ">Buy now </Link>
                 </div>
-                <img src="/public/images/Jbl speaker.png" className="max-w-[240px] self-start"/>
+                <img src="/public/images/Jbl.png" className="max-w-[240px] self-start "/>
             </div>
 
             <OurProducts products={products}/>
             <NewArrivals/>
 
-            <div className="flex gap-4 flex-wrap justify-center mt-6">
+            <div className="descriptions">
                 {Object.entries(guarantees).map(([key, value]) => (
-                  <div key={key} className=" border rounded-lg p-4 flex flex-col items-center min-w-[180px] bg-white shadow-sm">
-                    <div className="mb-2 text-2xl">{value.icon}</div>
-                    <div className="font-bold text-xs mb-1 text-center">{value.hint}</div>
-                    <div className="text-[10px] text-gray-500 text-center">{value.goal}</div>
+                  <div key={key} className="desc">
+                    <div>{value.icon}</div>
+                    <div>{value.hint}</div>
+                    <div>{value.goal}</div>
                   </div>
                 ))}
             </div>

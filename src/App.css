@@ -52,6 +52,9 @@
     .navList > li{
             @apply text-[40px] sm:text-[12px]
         }
+        .navList > li:hover{
+            @apply bg-red-500 p-4
+        }
         .addsText{
             @apply text-xl sm:text-4xl w-[45%] flex flex-col gap-3
         }
@@ -87,6 +90,33 @@
         }
         .footerContent > *{
             @apply mt-3
+        }
+        input{
+            @apply focus:outline-0
+        }
+        .story{
+            @apply flex flex-col gap-6 max-w-[700px] min-sm:text-lg
+        }
+        .descriptions{
+            @apply flex gap-4 flex-wrap justify-center mt-30 mb-30
+        }
+        .desc{
+            @apply border rounded-lg p-4 flex flex-col items-center min-w-[180px] bg-white shadow-sm 
+        }
+        .desc:hover{
+            @apply bg-red-500 text-white
+        }
+        .desc > div:nth-child(1){
+            @apply mb-2 text-2xl 
+        }
+        .desc > div:nth-child(2){
+            @apply font-bold text-lg mb-1 text-center
+        }
+        .desc > div:nth-child(3){
+            @apply text-[10px] text-center font-bold
+        }
+        .team{
+            @apply flex gap-4 justify-center items-center
         }
 }
 
