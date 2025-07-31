@@ -37,6 +37,9 @@
     .signUp{
         @apply w-[400px] lg:w-[600px] flex flex-col gap-3
     }
+    .contact{
+        @apply flex flex-col sm:flex-row gap-4 sm:justify-evenly p-3 mt-6
+    }
 
 }
 
@@ -53,7 +56,7 @@
             @apply text-[40px] sm:text-[12px]
         }
         .navList > li:hover{
-            @apply bg-red-500 p-4
+            @apply bg-red-500 p-4 text-white
         }
         .addsText{
             @apply text-xl sm:text-4xl w-[45%] flex flex-col gap-3
@@ -117,6 +120,27 @@
         }
         .team{
             @apply flex gap-4 justify-center items-center
+        }
+        .call{
+            @apply flex flex-col gap-4 text-[12px] w-[200px] bg-white shadow-xl drop-shadow-white rounded p-4 font-bold
+        }
+        .userData{
+            @apply flex gap-2 items-center flex-wrap
+        }
+        .userData > input{
+            @apply bg-gray-200 placeholder:text-[12px]  p-1
+        }
+        textarea{
+            @apply bg-gray-200 text-[12px]
+        }
+        textarea:focus{
+            @apply outline-0
+        }
+        .send{
+            @apply bg-red-500 text-white text-[13px] p-2 text-center rounded w-[160px]
+        }
+        .messages{
+            @apply flex flex-col justify-center gap-4 w-auto p-4 bg-white shadow-xl
         }
 }
 

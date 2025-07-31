@@ -135,8 +135,8 @@ export const Header = ()=> {
                 ))}
             </div>
 
-            <Footer/>
         </main>
+        <Footer/>
         </>
     )
 }
