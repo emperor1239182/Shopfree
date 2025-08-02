@@ -17,10 +17,10 @@
 
 @layer components{
     .navBar{
-        @apply flex justify-between items-center sm:block w-[100%] sticky px-6 py-3;
-    }
+  @apply flex justify-between items-center sm:block fixed top-0 z-10 px-6 py-3 w-full bg-white/5 backdrop-blur-md border-b border-white/20;
+}
     .adds{
-        @apply flex bg-black text-white justify-between sm:justify-around w-full px-5 py-10 mt-1 ;
+        @apply flex bg-black text-white justify-between sm:justify-around w-full px-5 py-10 mt-20 ;
     }
     .newArrivals{
         @apply grid grid-cols-3 gap-3 w-auto 
@@ -50,7 +50,7 @@
         @apply hidden sm:flex items-center justify-between gap-10;
     }
     .mobileNavList{
-        @apply rounded-l fixed top-0 right-0 h-55 w-50 bg-white shadow-xl p-3 
+        @apply rounded-l fixed top-0 right-0 h-65 w-50 shadow-xl p-3 bg-blue-950/80 backdrop-blur-md border-b border-white/20;
     }
     .navList > li{
             @apply text-[40px] sm:text-[12px]
@@ -121,7 +121,7 @@
         .team{
             @apply flex gap-4 justify-center items-center
         }
-        .call{
+        .call, .manageAccount{
             @apply flex flex-col gap-4 text-[12px] w-[200px] bg-white shadow-xl drop-shadow-white rounded p-4 font-bold
         }
         .userData{

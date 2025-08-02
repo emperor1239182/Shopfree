@@ -93,7 +93,7 @@ export const Header = ()=> {
             <p>{errorMessage}</p>
         <header>
 
-            <div className="adds">
+            <div className="adds ">
                 <div className="addsText">
                    <p className="flex items-center gap-4 text-[12px]"> <FaApple size={50}/> iphone14 series </p>
                    <p>Up to 10% off Voucher</p>

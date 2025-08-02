@@ -1,4 +1,4 @@
-import { FaMagnifyingGlass, FaHeart, FaCartShopping, FaBars, FaXmark } from "react-icons/fa6"
+import { FaMagnifyingGlass, FaHeart, FaCartShopping, FaBars, FaXmark, FaUser } from "react-icons/fa6"
 import { Outlet, Link } from "react-router-dom"
 import { useState } from "react"
 export const Layout = ()=> {
@@ -48,6 +48,9 @@ export const Layout = ()=> {
                 </li>
                 <li className="hidden sm:block">
                     <Link to="/cart"> <FaCartShopping/> </Link>
+                </li>
+                <li className="hidden sm:block">
+                    <Link to="/cart"> <FaUser/> </Link>
                 </li>
                  <li className="hidden">
                     <Link to="/nopage">No page</Link>
