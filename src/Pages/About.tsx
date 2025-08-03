@@ -78,7 +78,7 @@ export const About = ()=> {
 
     return( 
         <>
-        <section className="about p-4">
+        <section className="about p-4 mt-20">
 
             <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
                 <div className="story">

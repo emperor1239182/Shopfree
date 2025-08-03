@@ -21,7 +21,7 @@ export const Router = ()=>{
           <Route path="signup" element={<SignUp/>}/>
           <Route path="cart" element={<Cart/>}/>
           <Route path="wishlist" element={<Wishlist/>}/>
-          <Route  element={<Account/>}/>
+          <Route path="account" element={<Account/>}/>
           <Route path="*" element={<NoPage/>}/>
         </Route>
     </Routes>

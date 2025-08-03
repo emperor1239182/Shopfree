@@ -89,7 +89,7 @@ export const Header = ()=> {
       
     return (
         <>
-        <main className="px-3">
+        <main className="px-3 mt-20">
             <p>{errorMessage}</p>
         <header>
 

@@ -20,7 +20,7 @@
   @apply flex justify-between items-center sm:block fixed top-0 z-10 px-6 py-3 w-full bg-white/5 backdrop-blur-md border-b border-white/20;
 }
     .adds{
-        @apply flex bg-black text-white justify-between sm:justify-around w-full px-5 py-10 mt-20 ;
+        @apply flex bg-black text-white justify-between sm:justify-around w-full px-5 py-10 ;
     }
     .newArrivals{
         @apply grid grid-cols-3 gap-3 w-auto 
@@ -35,12 +35,14 @@
         @apply flex gap-12 items-center justify-center  mt-15 p-3
     }
     .signUp{
-        @apply w-[400px] lg:w-[600px] flex flex-col gap-3
+        @apply w-[400px] lg:w-[600px] flex flex-col gap-3 mt-14
     }
     .contact{
-        @apply flex flex-col sm:flex-row gap-4 sm:justify-evenly p-3 mt-6
+        @apply flex flex-col sm:flex-row gap-4 sm:justify-evenly p-3 mt-20
     }
-
+    .account{
+        @apply mt-20 flex flex-col sm:justify-evenly sm:flex-row gap-8 p-4
+    }
 }
 
 
@@ -50,13 +52,13 @@
         @apply hidden sm:flex items-center justify-between gap-10;
     }
     .mobileNavList{
-        @apply rounded-l fixed top-0 right-0 h-65 w-50 shadow-xl p-3 bg-blue-950/80 backdrop-blur-md border-b border-white/20;
+        @apply rounded-l fixed top-0 right-0 w-55 shadow-xl p-3 bg-zinc-800/95 backdrop-blur-md text-white text-[12px];
     }
     .navList > li{
             @apply text-[40px] sm:text-[12px]
         }
         .navList > li:hover{
-            @apply bg-red-500 p-4 text-white
+            @apply bg-red-500 p-2 text-white
         }
         .addsText{
             @apply text-xl sm:text-4xl w-[45%] flex flex-col gap-3
@@ -141,6 +143,24 @@
         }
         .messages{
             @apply flex flex-col justify-center gap-4 w-auto p-4 bg-white shadow-xl
+        }
+        .manageAccount{
+            @apply text-white absolute top-10 right-0 w-50 p-2  bg-zinc-800/85 backdrop-blur-md
+        }
+        .infos{
+            @apply bg-white shadow-xl px-3 py-15 flex justify-center items-center
+        }
+        .accountCenter{
+            @apply text-[12px] font-bold flex flex-col gap-2
+        }
+        .accountCenter > p{
+            @apply text-gray-400 ml-3
+        }
+        .inputContainer > input{
+            @apply bg-gray-200 p-1 
+        }
+        .accountInfo{
+            @apply text-[11px] font-bold w-full  relative
         }
 }
 
