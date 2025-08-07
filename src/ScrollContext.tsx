@@ -77,9 +77,9 @@ export const Notification = ({children})=>{
 
       {notification && (
   <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
-    <div className="bg-white/5 backdrop-blur-md rounded-lg shadow-lg p-6 max-w-sm w-full text-center animate-fade-in">
-      <h2 className="text-lg font-semibold text-gray-800 mb-2">Notification</h2>
-      <p className="text-sm text-gray-600">{notification}</p>
+    <div className="bg-white/30 dark:bg-black/40 backdrop-blur-md rounded-lg shadow-lg p-4 max-w-sm w-full text-center animate-fade-in">
+      <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">Notification</h2>
+      <p className="text-sm text-gray-700 dark:text-gray-200">{notification}</p>
     </div>
   </div>
 )}
