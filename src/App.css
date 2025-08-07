@@ -4,6 +4,22 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+
 @layer utilities {
   .hide-scrollbar {
     scrollbar-width: none;
@@ -139,10 +155,10 @@
             @apply outline-0
         }
         .send{
-            @apply bg-red-500 text-white text-[13px] p-2 text-center rounded w-[160px]
+            @apply bg-red-500 text-white text-[13px] p-2 text-center rounded w-[160px] 
         }
         .messages{
-            @apply flex flex-col justify-center gap-4 w-auto p-4 bg-white shadow-xl
+            @apply flex flex-col justify-center gap-4 w-auto p-4 bg-white shadow-xl 
         }
         .manageAccount{
             @apply text-white absolute top-10 right-0 w-50 p-2  bg-zinc-800/85 backdrop-blur-md
@@ -161,6 +177,24 @@
         }
         .accountInfo{
             @apply text-[11px] font-bold w-full  relative
+        }
+        .productDisplay{
+            @apply relative w-40 bg-gray-100 p-5
+        }
+        .productDisplay > img{
+            @apply object-contain h-30
+        }
+        .iconContainer {
+            @apply absolute top-0 right-2
+        }
+        .productIcons{
+            @apply mt-3 rounded-2xl bg-white p-1
+        }
+        .productsName{
+            @apply text-[10px] font-bold
+        }
+        .productsPrice{
+            @apply text-[10px] text-red-400
         }
 }
 

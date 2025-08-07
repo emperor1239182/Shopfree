@@ -1,4 +1,3 @@
-import { Footer } from "../Footer"
 export const Account = ()=> {
     return(
         <>
@@ -56,7 +55,6 @@ export const Account = ()=> {
             </div>
 
         </section>
-        <Footer/>
         </>
     )
 }

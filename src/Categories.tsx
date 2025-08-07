@@ -1,13 +1,12 @@
 import type { product } from "./typeSet"
 import { FiCamera, FiMonitor, FiWatch, FiHeadphones, FiSmartphone, FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { GiTShirt, GiSofa } from "react-icons/gi";
-import { useScroll } from './ScrollContext';
+import { useScroll} from './ScrollContext';
 import { LuGamepad } from "react-icons/lu";
-
 
 export const Categories = ({products} : product)=>{
      const { scrollRefs, scrollLeft, scrollRight } = useScroll();
-    
+
     const categoryIcons = {
   Phones: FiSmartphone,
   Computers: FiMonitor,

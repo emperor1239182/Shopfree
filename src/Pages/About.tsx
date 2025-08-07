@@ -1,5 +1,4 @@
 import { FaHouse, FaDollarSign, FaBagShopping, FaMoneyCheckDollar, FaInstagram, FaTwitter, FaLinkedin, FaCar, FaHeadphones, FaCheck  } from "react-icons/fa6"
-import { Footer } from "../Footer"
 
 export const About = ()=> {
 
@@ -135,7 +134,6 @@ export const About = ()=> {
 
         </section>
 
-        <Footer/>
         </>
     )
 }

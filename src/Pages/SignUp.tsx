@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Footer } from "../Footer";
 
 type InputType = string | number;
 
@@ -40,8 +39,6 @@ export const SignUp = () => {
                     </form>
                 </div>
             </section>
-
-            <Footer/>
         </>
     );
 }

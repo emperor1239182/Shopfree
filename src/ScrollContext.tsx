@@ -1,6 +1,6 @@
 // ScrollContext.tsx
 import { createContext, useContext, useRef } from 'react';
-
+import { useState } from 'react';
 type ScrollRefs = {
   [key: string]: React.RefObject<HTMLUListElement | null>;
 };
@@ -12,6 +12,8 @@ type ScrollContextType = {
 } | null;
 
 const ScrollContext = createContext<ScrollContextType>(null);
+const WishlistContext = createContext();
+const NotificationContext = createContext();
 
 export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const scrollRefs: ScrollRefs = {
@@ -35,5 +37,54 @@ export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     </ScrollContext.Provider>
   );
 };
-
 export const useScroll = () => useContext(ScrollContext);
+
+
+
+export const Wishlists = ({children})=>{
+  type wishProducts = {
+    image: string
+    name: string
+    price: string
+  }
+  const [wishlist, setWishlist] = useState([]);
+
+  const handleWishlist =(wish: wishProducts)=>{
+    setWishlist((prev)=> [...prev, wish])
+  }
+
+  return (
+    <WishlistContext.Provider value={{wishlist, handleWishlist}}>
+      {children}
+    </WishlistContext.Provider>
+  )
+}
+export const useWishlist = () => useContext(WishlistContext);
+
+
+export const Notification = ({children})=>{
+  const [notification, setNotification] = useState("");
+
+  const handleNotification = ()=>{
+    setNotification("Item Added To Your Wishlist");
+    setTimeout(() => setNotification(""), 3000);
+
+  }
+
+  return (
+    <NotificationContext.Provider value={{notification, handleNotification}}>
+      {children}
+
+      {notification && (
+  <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+    <div className="bg-white/5 backdrop-blur-md rounded-lg shadow-lg p-6 max-w-sm w-full text-center animate-fade-in">
+      <h2 className="text-lg font-semibold text-gray-800 mb-2">Notification</h2>
+      <p className="text-sm text-gray-600">{notification}</p>
+    </div>
+  </div>
+)}
+
+    </NotificationContext.Provider>
+  )
+}
+export const useNotification = () => useContext(NotificationContext);

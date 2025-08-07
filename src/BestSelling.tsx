@@ -1,7 +1,9 @@
 import type { product } from "./typeSet"
 import { FiHeart, FiEye, FiStar } from "react-icons/fi"
-
+import { useNotification, useWishlist } from "./ScrollContext"
 export const BestSellingProducts = ({products} : product)=>{
+    const {handleWishlist} = useWishlist();
+    const {handleNotification, notification} = useNotification();
     return (
         <>
         <section className="categories mt-15">
@@ -20,10 +22,16 @@ export const BestSellingProducts = ({products} : product)=>{
 
                     <div className="w-40">
 
-                        <div className="relative w-40 bg-gray-100 p-5">
+                        <div className="productDisplay">
                     <img src={goods.image} className=" object-contain h-30"/>
                     <div className="absolute top-0 right-2">
-                    <div className="mt-3 rounded-2xl bg-white p-1"><FiHeart size={15}/></div>
+                    <div className="mt-3 rounded-2xl bg-white p-1">
+                        <FiHeart size={15} 
+                         onClick={() =>{
+                            handleWishlist({image:goods.image, name:goods.name, price:goods.price});
+                            handleNotification();
+                         }}/>
+                        </div>
                     <div className="mt-3 rounded-2xl bg-white p-1"><FiEye size={15} /></div>
                     </div>
                     </div>

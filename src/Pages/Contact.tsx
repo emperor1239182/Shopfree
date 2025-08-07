@@ -1,5 +1,4 @@
 import { FaPhone, FaMessage } from "react-icons/fa6"
-import { Footer } from "../Footer"
 
 export const Contact = ()=> {
     return(
@@ -34,8 +33,6 @@ export const Contact = ()=> {
             </div>
 
         </section>
-
-        <Footer/>
         </>
     )
 }

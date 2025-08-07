@@ -6,7 +6,7 @@ import { Categories } from "./Categories"
 import { BestSellingProducts } from "./BestSelling"
 import { OurProducts } from "./OurProducts"
 import { NewArrivals } from "./NewArrival"
-import { Footer } from "./Footer"
+
 
 
 export const Header = ()=> {
@@ -136,7 +136,6 @@ export const Header = ()=> {
             </div>
 
         </main>
-        <Footer/>
         </>
     )
 }

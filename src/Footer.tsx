@@ -10,7 +10,7 @@ export const Footer = ()=>{
                 <p>Subscribe</p>
                 <p>Get 10% off your first order</p>
                 <div className="flex justify-between items-center border-1 ">
-                <input type="email" placeholder="Enter your email" className="max-w-[70%] placeholder:text-[9px]"/>
+                <input type="email" placeholder="Enter your email" className="w-[90%] placeholder:text-[9px]"/>
                 <FaTelegram size={24}/>
                 </div>
              </div>

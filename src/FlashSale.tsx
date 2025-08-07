@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import { FiStar, FiHeart, FiEye, FiArrowRight, FiArrowLeft } from "react-icons/fi"
 import type { product } from "./typeSet"
-import { useScroll } from './ScrollContext';
+import { useNotification, useScroll, useWishlist } from './ScrollContext';
 
 export const Products = ({products}: product)=>{
      const [timeLeft, setTimeLeft] = useState({ days: 3, hours: 0, minutes: 0, seconds: 0 });
      const { scrollRefs, scrollLeft, scrollRight } = useScroll();
-
+     const {handleWishlist} = useWishlist();
+     const {handleNotification, notification} = useNotification();
 
   useEffect(() => {
     const targetDate = new Date();
@@ -68,18 +69,24 @@ export const Products = ({products}: product)=>{
 
                     <div className="w-40">
 
-                        <div className="relative w-40 bg-gray-100 p-5">
-                    <img src={goods.image} className=" object-contain h-30"/>
-                    <div className="absolute top-0 right-2">
-                    <div className="mt-3 rounded-2xl bg-white p-1"><FiHeart size={15}/></div>
-                    <div className="mt-3 rounded-2xl bg-white p-1"><FiEye size={15} /></div>
+                        <div className="productDisplay">
+                    <img src={goods.image}/>
+                    <div className="iconContainer">
+                    <div className="productIcons">
+                        <FiHeart size={15} 
+                         onClick={() =>{
+                            handleWishlist({image:goods.image, name:goods.name, price:goods.price});
+                            handleNotification();
+                         }}/>
+                        </div>
+                    <div className="productIcons"><FiEye size={15} /></div>
                     </div>
                     <p className="addToCart">Add To Cart</p>
                     <p className="absolute left-1 top-1 text-[9px] px-2 text-white rounded bg-red-600">{goods.discount}</p>
                     </div>
 
-                    <p className="text-[10px] font-bold">{goods.name}</p>
-                    <p className="text-[10px] text-red-400">{goods.price} <span className="text-gray-600 ml-2 line-through font-bold">{goods.oldPrice} </span></p>
+                    <p className="productsName">{goods.name}</p>
+                    <p className="productsPrice">{goods.price} <span className="text-gray-600 ml-2 line-through font-bold">{goods.oldPrice} </span></p>
                     <div className="flex">
                     <FiStar color="gold" size={8}/>
                     <FiStar color="gold" size={8}/>
