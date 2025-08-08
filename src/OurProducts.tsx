@@ -1,10 +1,9 @@
 import { FiArrowLeft, FiArrowRight, FiHeart, FiEye, FiStar } from "react-icons/fi"
-import { useScroll, useWishlist, useNotification} from "./ScrollContext"
+import { useScroll, useWishlist} from "./ScrollContext"
 
 export const OurProducts = ({products})=>{
     const {scrollRefs, scrollLeft, scrollRight} = useScroll();
     const { handleWishlist} = useWishlist();
-    const {handleNotification, notification} = useNotification();
 
     return (
         <>
@@ -34,8 +33,7 @@ export const OurProducts = ({products})=>{
                         <FiHeart size={15} 
                          onClick={() =>{
                             handleWishlist({image:goods.image, name:goods.name, price:goods.price});
-                            handleNotification();
-                         }}/>
+                         }} className="wis"/>
                          </div>
                     <div className="mt-3 rounded-2xl bg-white p-1"><FiEye size={15}/></div>
                     </div>

@@ -196,5 +196,8 @@ html, body {
         .productsPrice{
             @apply text-[10px] text-red-400
         }
+        .wis:active{
+            @apply text-red-500
+        }
 }
 

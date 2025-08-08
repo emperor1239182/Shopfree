@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react"
 import { FiStar, FiHeart, FiEye, FiArrowRight, FiArrowLeft } from "react-icons/fi"
 import type { product } from "./typeSet"
-import { useNotification, useScroll, useWishlist } from './ScrollContext';
+import { useScroll, useWishlist } from './ScrollContext';
 
 export const Products = ({products}: product)=>{
      const [timeLeft, setTimeLeft] = useState({ days: 3, hours: 0, minutes: 0, seconds: 0 });
      const { scrollRefs, scrollLeft, scrollRight } = useScroll();
      const {handleWishlist} = useWishlist();
-     const {handleNotification, notification} = useNotification();
 
   useEffect(() => {
     const targetDate = new Date();
@@ -76,7 +75,6 @@ export const Products = ({products}: product)=>{
                         <FiHeart size={15} 
                          onClick={() =>{
                             handleWishlist({image:goods.image, name:goods.name, price:goods.price});
-                            handleNotification();
                          }}/>
                         </div>
                     <div className="productIcons"><FiEye size={15} /></div>

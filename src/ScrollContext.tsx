@@ -48,34 +48,45 @@ export const Wishlists = ({children})=>{
     price: string
   }
   const [wishlist, setWishlist] = useState([]);
-
-  const handleWishlist =(wish: wishProducts)=>{
-    setWishlist((prev)=> [...prev, wish])
-  }
-
-  return (
-    <WishlistContext.Provider value={{wishlist, handleWishlist}}>
-      {children}
-    </WishlistContext.Provider>
-  )
-}
-export const useWishlist = () => useContext(WishlistContext);
-
-
-export const Notification = ({children})=>{
+  const [count, setCount] = useState(0);
   const [notification, setNotification] = useState("");
 
-  const handleNotification = ()=>{
-    setNotification("Item Added To Your Wishlist");
-    setTimeout(() => setNotification(""), 3000);
+  const handleWishlist = (wish: wishProduct) => {
+    const exists = wishlist.some(
+      (item) =>
+        item.name === wish.name &&
+        item.price === wish.price &&
+        item.image === wish.image
+    );
 
-  }
+    if (exists) {
+      // Remove item
+      const updatedList = wishlist.filter(
+        (item) =>
+          item.name !== wish.name ||
+          item.price !== wish.price ||
+          item.image !== wish.image
+           );
+      setWishlist(updatedList);
+      setCount((prev) => Math.max(prev - 1, 0));
+      setNotification("Item Removed From Your Wishlist");
+    setTimeout(() => setNotification(""), 3000);
+    } else {
+      // Add item
+      setWishlist((prev) => [...prev, wish]);
+      setCount((prev) => prev + 1);
+      setNotification("Item Added To Your Wishlist");
+        setTimeout(() => setNotification(""), 3000);
+    }
+  };
+
+
 
   return (
-    <NotificationContext.Provider value={{notification, handleNotification}}>
+    <WishlistContext.Provider value={{wishlist, count, handleWishlist}}>
       {children}
 
-      {notification && (
+       {notification && (
   <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
     <div className="bg-white/30 dark:bg-black/40 backdrop-blur-md rounded-lg shadow-lg p-4 max-w-sm w-full text-center animate-fade-in">
       <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">Notification</h2>
@@ -83,8 +94,9 @@ export const Notification = ({children})=>{
     </div>
   </div>
 )}
-
-    </NotificationContext.Provider>
+    </WishlistContext.Provider>
   )
 }
-export const useNotification = () => useContext(NotificationContext);
+export const useWishlist = () => useContext(WishlistContext);
+
+

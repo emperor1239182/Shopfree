@@ -1,9 +1,8 @@
 import type { product } from "./typeSet"
 import { FiHeart, FiEye, FiStar } from "react-icons/fi"
-import { useNotification, useWishlist } from "./ScrollContext"
+import { useWishlist } from "./ScrollContext"
 export const BestSellingProducts = ({products} : product)=>{
     const {handleWishlist} = useWishlist();
-    const {handleNotification, notification} = useNotification();
     return (
         <>
         <section className="categories mt-15">
@@ -29,7 +28,6 @@ export const BestSellingProducts = ({products} : product)=>{
                         <FiHeart size={15} 
                          onClick={() =>{
                             handleWishlist({image:goods.image, name:goods.name, price:goods.price});
-                            handleNotification();
                          }}/>
                         </div>
                     <div className="mt-3 rounded-2xl bg-white p-1"><FiEye size={15} /></div>
