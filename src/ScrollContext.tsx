@@ -48,6 +48,14 @@ export const Wishlists = ({children})=>{
   const [wishlist, setWishlist] = useState([]);
   const [count, setCount] = useState(0);
   const [notification, setNotification] = useState("");
+  const [clickedItems, setClickedItems] = useState<number[]>([]);;
+
+  const toggleHeart = (id: number) => {
+  setClickedItems((prev) =>
+    prev.includes(id) ? prev.filter((itemId) => itemId !== id) : [...prev, id]
+  );
+};
+
 
   const handleWishlist = (wish: wishProducts) => {
     const exists = wishlist.some(
@@ -79,7 +87,7 @@ export const Wishlists = ({children})=>{
   };
 
   return (
-    <WishlistContext.Provider value={{wishlist, count, handleWishlist}}>
+    <WishlistContext.Provider value={{wishlist, count, handleWishlist, toggleHeart, clickedItems}}>
       {children}
 
        {notification && (

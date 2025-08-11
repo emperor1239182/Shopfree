@@ -1,9 +1,11 @@
 import type { product } from "./typeSet"
+import { useState } from "react"
 import { FiHeart, FiEye, FiStar } from "react-icons/fi"
 import { useWishlist } from "./ScrollContext"
 import { Link } from "react-router-dom"
+
 export const BestSellingProducts = ({products} : product)=>{
-    const {handleWishlist} = useWishlist();
+    const {handleWishlist, clickedItems, toggleHeart} = useWishlist();
     return (
         <>
         <section className="categories mt-15">
@@ -17,7 +19,9 @@ export const BestSellingProducts = ({products} : product)=>{
 
         <div className="mt-5  ">
             <ul className="hide-scrollbar productList">
-            {products.slice(1,10).toReversed().map((goods)=>(
+            {products.slice(1,10).toReversed().map((goods)=> {
+                console.log("goods.id type:", typeof goods.id, "value:", goods.id); // ✅ 
+                return (
                 <li key={goods.id}>
 
                     <div className="w-40">
@@ -25,11 +29,12 @@ export const BestSellingProducts = ({products} : product)=>{
                         <div className="productDisplay">
                     <img src={goods.image} className=" object-contain h-30"/>
                     <div className="absolute top-0 right-2">
-                    <div className="mt-3 rounded-2xl bg-white p-1">
-                        <FiHeart size={15} 
-                         onClick={() =>{
-                            handleWishlist({image:goods.image, name:goods.name, price:goods.price});
-                         }}/>
+                    <div className={`mt-3 rounded-2xl p-1 cursor-pointer ${clickedItems.includes(goods.id)? "bg-red-500 text-white" : "bg-white text-black"}`}
+                     onClick={()=>{
+                    toggleHeart(goods.id);
+                    handleWishlist({image:goods.image, name:goods.name, price:goods.price});
+                    }}>
+                        <FiHeart size={15}/>
                         </div>
                     <div className="mt-3 rounded-2xl bg-white p-1"><Link to="/wishlist"><FiEye size={15}/></Link></div>
                     </div>
@@ -45,7 +50,8 @@ export const BestSellingProducts = ({products} : product)=>{
 
                     </div>
                 </li>
-            ))}
+                )
+            })}
             </ul>
             </div>
         </>

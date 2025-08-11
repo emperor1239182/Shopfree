@@ -32,7 +32,18 @@ export const Wishlist = () => {
  />
       </div>
     </div>
-    <p className="addToCart" onClick={()=> handleCart({image:item.image, price:item.price})}>Add To Cart</p>
+    <p className="addToCart" 
+     onClick={()=> {
+      handleCart({image:item.image, price:item.price}); 
+      handleWishlist({
+       image: item.image,
+       name: item.name,
+       price: item.price,
+     });
+    }}
+    >
+      Add To Cart
+      </p>
   </div>
   <p className="productsName">{item.name}</p>
     <p className="productsPrice">{item.price}</p>
