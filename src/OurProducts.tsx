@@ -1,9 +1,11 @@
 import { FiArrowLeft, FiArrowRight, FiHeart, FiEye, FiStar } from "react-icons/fi"
-import { useScroll, useWishlist} from "./ScrollContext"
+import { useCart, useScroll, useWishlist} from "./ScrollContext"
+import { Link } from "react-router-dom";
 
 export const OurProducts = ({products})=>{
     const {scrollRefs, scrollLeft, scrollRight} = useScroll();
     const { handleWishlist} = useWishlist();
+    const {handleCart, isInCart} = useCart();
 
     return (
         <>
@@ -35,9 +37,11 @@ export const OurProducts = ({products})=>{
                             handleWishlist({image:goods.image, name:goods.name, price:goods.price});
                          }} className="wis"/>
                          </div>
-                    <div className="mt-3 rounded-2xl bg-white p-1"><FiEye size={15}/></div>
+                    <div className="mt-3 rounded-2xl bg-white p-1"><Link to="/wishlist"><FiEye size={15}/></Link></div>
                     </div>
-                    <p className="addToCart">Add To Cart</p>
+                    <p className="addToCart" onClick={()=> handleCart({image:goods.image, name:goods.name, price:goods.price})}>
+                        {isInCart(goods) ? "Remove Item" : "Add to Cart"}
+                    </p>
                     
                     </div>
 

@@ -9,17 +9,6 @@ html, body {
   margin: 0;
 }
 
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.main-content {
-  flex: 1;
-}
-
-
 @layer utilities {
   .hide-scrollbar {
     scrollbar-width: none;
@@ -196,8 +185,14 @@ html, body {
         .productsPrice{
             @apply text-[10px] text-red-400
         }
-        .wis:active{
-            @apply text-red-500
+        .invoice{
+            @apply flex text-[12px] justify-between items-center bg-white shadow-xl mt-4 p-3
+        }
+        .invoiceHeader{
+            @apply font-bold 
+        }
+        .totalValues{
+            @apply flex border-b-1 justify-between text-[11px] font-semibold
         }
 }
 

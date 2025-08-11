@@ -10,3 +10,8 @@ export type allProducts = {
 export type product = {
     products : allProducts [];
 }
+export type wishProducts = {
+    image: string
+    name: string
+    price: string
+  }

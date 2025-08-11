@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
 import { FiStar, FiHeart, FiEye, FiArrowRight, FiArrowLeft } from "react-icons/fi"
 import type { product } from "./typeSet"
-import { useScroll, useWishlist } from './ScrollContext';
+import { useCart, useScroll, useWishlist } from './ScrollContext';
+import { Link } from "react-router-dom";
 
 export const Products = ({products}: product)=>{
      const [timeLeft, setTimeLeft] = useState({ days: 3, hours: 0, minutes: 0, seconds: 0 });
      const { scrollRefs, scrollLeft, scrollRight } = useScroll();
      const {handleWishlist} = useWishlist();
+     const {handleCart, isInCart} = useCart();
 
   useEffect(() => {
     const targetDate = new Date();
@@ -77,9 +79,11 @@ export const Products = ({products}: product)=>{
                             handleWishlist({image:goods.image, name:goods.name, price:goods.price});
                          }}/>
                         </div>
-                    <div className="productIcons"><FiEye size={15} /></div>
+                    <div className="productIcons"><Link to="/wishlist"><FiEye size={15}/></Link></div>
                     </div>
-                    <p className="addToCart">Add To Cart</p>
+                    <p className="addToCart"  onClick={()=> handleCart({image:goods.image, name:goods.name, price:goods.price})}>
+                        {isInCart(goods) ? "Remove Item" : "Add to Cart"}
+                    </p>
                     <p className="absolute left-1 top-1 text-[9px] px-2 text-white rounded bg-red-600">{goods.discount}</p>
                     </div>
 

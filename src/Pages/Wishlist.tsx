@@ -1,16 +1,18 @@
-import { useWishlist } from "../ScrollContext";
+import { useWishlist, useCart } from "../ScrollContext";
 import { FiTrash } from "react-icons/fi";
 export const Wishlist = () => {
   const { wishlist, count } = useWishlist();
   const { handleWishlist} = useWishlist();
+  const {handleCart} = useCart();
   return (
     <section className="mt-15 p-3">
       <div className="flex justify-between items-center">
-        <p>Wishlist ({count})</p>
-        <p>Move All To Bag</p>
+        <p className="font-bold">Wishlist ({count})</p>
+        <p className="border-1 border-gray-400 text-[12px] font-bold text-center p-2 ">Move All To Bag</p>
       </div>
         <div className="mt-10">
-            <ul className="productList hide-scrollbar">
+          {wishlist.length > 0?  
+          <ul className="productList hide-scrollbar">
             {wishlist.map((item, i) => (
                 <li key={i}>
                   <div className="w-40">
@@ -30,14 +32,17 @@ export const Wishlist = () => {
  />
       </div>
     </div>
-    <p className="addToCart">Add To Cart</p>
+    <p className="addToCart" onClick={()=> handleCart({image:item.image, price:item.price})}>Add To Cart</p>
   </div>
   <p className="productsName">{item.name}</p>
     <p className="productsPrice">{item.price}</p>
     </div>
   </li>
       ))}
-      </ul>
+      </ul> : 
+      <p className="text-2xl font-bold text-center ">Go Make A Wish!</p>
+        }
+            
       </div>
     
     </section>

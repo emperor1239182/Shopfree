@@ -1,6 +1,7 @@
 import type { product } from "./typeSet"
 import { FiHeart, FiEye, FiStar } from "react-icons/fi"
 import { useWishlist } from "./ScrollContext"
+import { Link } from "react-router-dom"
 export const BestSellingProducts = ({products} : product)=>{
     const {handleWishlist} = useWishlist();
     return (
@@ -30,7 +31,7 @@ export const BestSellingProducts = ({products} : product)=>{
                             handleWishlist({image:goods.image, name:goods.name, price:goods.price});
                          }}/>
                         </div>
-                    <div className="mt-3 rounded-2xl bg-white p-1"><FiEye size={15} /></div>
+                    <div className="mt-3 rounded-2xl bg-white p-1"><Link to="/wishlist"><FiEye size={15}/></Link></div>
                     </div>
                     </div>
 

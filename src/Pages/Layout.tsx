@@ -2,10 +2,12 @@ import { FaMagnifyingGlass, FaHeart, FaCartShopping, FaBars, FaXmark, FaUser } f
 import { Outlet, Link } from "react-router-dom";
 import { useState } from "react";
 import { Footer } from "../Footer";
+import { useWishlist } from "../ScrollContext";
 
 export const Layout = () => {
   const [navBar, setNavBar] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const {count} = useWishlist();
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -14,8 +16,11 @@ export const Layout = () => {
           <Link to="/home" className="font-bold text-2xl sm:hidden">Exclusive</Link>
 
           <ul className="sm:hidden flex justify-between gap-4">
-            <li onClick={() => setNavBar(false)}>
-              <Link to="/wishlist"><FaHeart /></Link>
+            <li onClick={() => setNavBar(false)} className="relative">
+              <Link to="/wishlist">
+              <FaHeart />
+              </Link>
+              <p className=" text-red-500 absolute top-0">{count}</p>
             </li>
             <li onClick={() => setNavBar(false)}>
               <Link to="/cart"><FaCartShopping /></Link>
