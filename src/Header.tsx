@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { FaApple, FaArrowRight, FaCar, FaHeadphones, FaCheck } from "react-icons/fa6"
-import { Products } from "./FlashSale"
+import { FlashSale } from "./FlashSale"
 import { Categories } from "./Categories"
 import { BestSellingProducts } from "./BestSelling"
 import { OurProducts } from "./OurProducts"
@@ -90,7 +90,7 @@ export const Header = ()=> {
     return (
         <>
         <main className="px-3 mt-20">
-            <p>{errorMessage}</p>
+            <p className="error">{errorMessage}</p>
         <header>
 
             <div className="adds ">
@@ -103,7 +103,7 @@ export const Header = ()=> {
             </div>
         </header>
 
-        <Products products={products} /> 
+        <FlashSale products={products} /> 
              <Categories products={products}/>
              <BestSellingProducts products={products}/>
 

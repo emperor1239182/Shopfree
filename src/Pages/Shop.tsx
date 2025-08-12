@@ -1,30 +1,43 @@
-import { FiArrowLeft, FiArrowRight, FiHeart, FiEye, FiStar } from "react-icons/fi"
-import { useCart, useScroll, useWishlist, useSearch} from "./ScrollContext"
+import { useState, useEffect } from "react";
+import { FiStar, FiHeart, FiEye} from "react-icons/fi"
 import { Link } from "react-router-dom";
+import { useWishlist, useCart, useSearch } from "../ScrollContext";
+export const Shop = () =>{
+     const [products, setProducts] = useState([]);
+     const [errorMessage, setErrorMessage] = useState('');
+     const {handleWishlist} = useWishlist();
+     const {handleCart, isInCart} = useCart();
+     const { searchTerm } = useSearch();
 
-export const OurProducts = ({products})=>{
-    const {scrollRefs, scrollLeft, scrollRight} = useScroll();
-    const { handleWishlist} = useWishlist();
-    const {handleCart, isInCart} = useCart();
-    const { searchTerm } = useSearch();
-
+     const getProducts = async () => {
+             try{
+                 const response = await fetch('products.json');
+                 if(!response.ok){
+                     throw new Error ('failed to load products');
+                 }
+                 const data = await response.json();
+                 if(data.products){
+                     setProducts(data.products);
+                 }
+             } catch(error){
+                 console.error(`Error fetching products : ${error}`);
+                 setErrorMessage('Unable to get products');
+             } 
+         }
+     
+         useEffect(()=>{
+             getProducts();
+         }, []);
+     
 
     return (
         <>
-         <section className="categories mt-15">
-                     <p className="border-l-8 text-red-500 text-[11px]">Our Products</p>
-         
-                     <div className="intro">
-                     <h3 className="font-bold">Explore Our Products</h3>
-                     <div className="flex gap-3.5">
-                 <FiArrowLeft className="rounded-xl bg-gray-200" onClick={() => scrollLeft('ourProducts')}/>
-                     <FiArrowRight className="rounded-xl bg-gray-200" onClick={() => scrollRight('ourProducts')} />
-                 </div>
-                      </div>
-                 </section>
+        <section className="mt-15 p-2">
+            <h1 className="text-center font-bold text-lg">All Products</h1>
+            <p className="error">{errorMessage}</p>
 
-             <div className="mt-5  ">
-            <ul className="hide-scrollbar grid grid-rows-2 auto-cols-[minmax(160px,_1fr)] grid-flow-col gap-5  overflow-auto" ref={scrollRefs.ourProducts}>
+            <div className="mt-5  ">
+            <ul className="hide-scrollbar grid grid-rows-5 auto-cols-[minmax(160px,_1fr)] grid-flow-col gap-5  overflow-auto">
             {products.filter(goods =>
             goods.name.toLowerCase().includes(searchTerm.toLowerCase())).map((goods)=>(
                 <li key={goods.id}>
@@ -60,8 +73,8 @@ export const OurProducts = ({products})=>{
                 </li>
             ))}
             </ul>
-            <p className="viewAll mt-5"><Link to="/shop">View All Products</Link></p>
         </div>
+        </section>
         </>
     )
 }

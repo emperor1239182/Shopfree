@@ -8,6 +8,8 @@ import { Layout } from "./Pages/Layout"
 import { Account } from "./Pages/Account"
 import { Wishlist } from "./Pages/Wishlist"
 import { NoPage } from "./Pages/No page"
+import { Login } from "./Pages/LogIn"
+import { Shop } from "./Pages/Shop"
 
 export const Router = ()=>{
     return (
@@ -22,6 +24,8 @@ export const Router = ()=>{
           <Route path="cart" element={<Cart/>}/>
           <Route path="wishlist" element={<Wishlist/>}/>
           <Route path="account" element={<Account/>}/>
+          <Route path="login" element={<Login/>}/>
+          <Route path="shop" element={<Shop/>}/>
           <Route path="*" element={<NoPage/>}/>
         </Route>
     </Routes>

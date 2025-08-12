@@ -1,5 +1,4 @@
-import { createContext, useContext, useRef } from 'react';
-import { useState } from 'react';
+import { createContext, useContext, useRef, useState, useEffect } from 'react';
 import type { wishProducts } from './typeSet';
 
 type ScrollRefs = {
@@ -47,7 +46,11 @@ export const useScroll = () => useContext(ScrollContext);
 //wishlists context
 export const Wishlists = ({children})=>{
 
-  const [wishlist, setWishlist] = useState([]);
+  const [wishlist, setWishlist] = useState(() => {
+    const storedWishes = localStorage.getItem("wishlist");
+    return storedWishes ? JSON.parse(storedWishes) : [];
+  });
+
   const [count, setCount] = useState(0);
   const [notification, setNotification] = useState("");
   const [clickedItems, setClickedItems] = useState<number[]>([]);;
@@ -57,6 +60,11 @@ export const Wishlists = ({children})=>{
     prev.includes(id) ? prev.filter((itemId) => itemId !== id) : [...prev, id]
   );
 };
+
+useEffect(() => {
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    setCount(wishlist.length);
+  }, [wishlist]);
 
 
   const handleWishlist = (wish: wishProducts) => {
@@ -125,7 +133,16 @@ export const useWishlist = () => useContext(WishlistContext);
 
 //Add to cart context
 export const AddToCart = ({children}) =>{
-  const [cart, setCart] = useState([]);
+ const [cart, setCart] = useState(() => {
+  const storedCart = localStorage.getItem("cart");
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+    setCount(cart.length);
+  }, [cart]);
+
   const [count, setCount] = useState(0);
   const [notification, setNotification] = useState("");
 
@@ -173,6 +190,7 @@ export const AddToCart = ({children}) =>{
       count, 
       handleCart, 
       isInCart,
+      setCart
       }}>
       {children}
 

@@ -4,7 +4,7 @@ import type { product } from "./typeSet"
 import { useCart, useScroll, useSearch, useWishlist } from './ScrollContext';
 import { Link } from "react-router-dom";
 
-export const Products = ({products}: product)=>{
+export const FlashSale = ({products}: product)=>{
      const [timeLeft, setTimeLeft] = useState({ days: 3, hours: 0, minutes: 0, seconds: 0 });
      const { scrollRefs, scrollLeft, scrollRight } = useScroll();
      const {handleWishlist} = useWishlist();
@@ -101,7 +101,8 @@ export const Products = ({products}: product)=>{
                 </li>
             ))}
             </ul>
-            <p className="viewAll mt-5">View All Products</p>
+
+            <p className="viewAll mt-5"><Link to="/shop">View All Products</Link></p>
         </div>
         </>
     )

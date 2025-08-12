@@ -67,6 +67,7 @@ export const Layout = () => {
             <li className="mt-4 sm:hidden" onClick={() => setNavBar(false)}><Link to="/account">Manage My Account</Link></li>
             <li className="mt-4 sm:hidden" onClick={() => setNavBar(false)}><Link to="/signup">My Order</Link></li>
             <li className="mt-4 sm:hidden" onClick={() => setNavBar(false)}><Link to="/signup">My Cancellations</Link></li>
+            <li className="mt-4 sm:hidden" onClick={() => setNavBar(false)}><Link to="/shop">Shop</Link></li>
             <li className="mt-4 sm:hidden" onClick={() => setNavBar(false)}><Link to="/signup">Log Out</Link></li>
 
             <div className="flex justify-between gap-4 items-center">

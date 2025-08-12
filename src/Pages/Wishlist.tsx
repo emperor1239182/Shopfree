@@ -8,12 +8,15 @@ export const Wishlist = () => {
     <section className="mt-15 p-3">
       <div className="flex justify-between items-center">
         <p className="font-bold">Wishlist ({count})</p>
+
+        {wishlist.length > 0? 
         <p
           className="border-1 border-gray-400 text-[12px] font-bold text-center p-2 cursor-pointer hover:bg-gray-100"
           onClick={() => moveAllToCart(handleCart)}
         >
           Move All To Bag
-        </p>
+        </p> : ""
+      }
       </div>
         <div className="mt-10">
           {wishlist.length > 0?  

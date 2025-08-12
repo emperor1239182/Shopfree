@@ -31,9 +31,9 @@ export const Login = () => {
                         /> <br/>
 
                         <input type="password" className="input" placeholder="password"/> <br/>
-                        <div className="flex">
-                        <div className="bg-red-600 p-1.5 text-center text-white text-[10px]"><input type="submit" value="Log in"/></div>
-                        <p className="text-[12px] text-center mt-4">Already have an account?  <Link to="/login" className="underline">Forget Password?</Link> </p>
+                        <div className="flex flex-col gap-4">
+                        <div className="bg-red-600 p-1.5 text-center text-white text-[12px]"><input type="submit" value="Log in"/></div>
+                        <Link to="/login" className="underline text-[9px]">Forget Password?</Link> 
                         </div>
                     </form>
                 </div>

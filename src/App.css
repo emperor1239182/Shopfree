@@ -76,7 +76,7 @@ html, body {
             @apply text-[40px] sm:text-[12px]
         }
         .navList > li:hover{
-            @apply bg-red-500 p-2 text-white
+            @apply bg-red-500 p-1 text-white
         }
         .addsText{
             @apply text-xl sm:text-4xl w-[45%] flex flex-col gap-3
@@ -209,6 +209,9 @@ html, body {
         }
         .navIcons{
             @apply bg-white text-black rounded-2xl p-1 cursor-pointer;
+        }
+        .error{
+            @apply text-lg font-bold text-center
         }
 }
 
