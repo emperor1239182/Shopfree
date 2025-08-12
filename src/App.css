@@ -17,6 +17,19 @@ html, body {
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
   }
+  .heart-icon {
+  background-color: white;
+  color: black;
+  padding: 4px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.heart-icon.active {
+  background-color: red;
+  color: white;
+}
 }
 
 

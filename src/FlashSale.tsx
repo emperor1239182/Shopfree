@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { FiStar, FiHeart, FiEye, FiArrowRight, FiArrowLeft } from "react-icons/fi"
 import type { product } from "./typeSet"
-import { useCart, useScroll, useWishlist } from './ScrollContext';
+import { useCart, useScroll, useSearch, useWishlist } from './ScrollContext';
 import { Link } from "react-router-dom";
 
 export const Products = ({products}: product)=>{
@@ -9,6 +9,7 @@ export const Products = ({products}: product)=>{
      const { scrollRefs, scrollLeft, scrollRight } = useScroll();
      const {handleWishlist} = useWishlist();
      const {handleCart, isInCart} = useCart();
+     const { searchTerm } = useSearch();
 
   useEffect(() => {
     const targetDate = new Date();
@@ -65,7 +66,8 @@ export const Products = ({products}: product)=>{
 
         <div className="mt-5  ">
             <ul className="hide-scrollbar productList" ref={scrollRefs.flashSales}>
-            {products.slice(1,10).map((goods)=>(
+            {products.slice(1,10).filter(goods =>
+            goods.name.toLowerCase().includes(searchTerm.toLowerCase())).map((goods)=>(
                 <li key={goods.id}>
 
                     <div className="w-40">

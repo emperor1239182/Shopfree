@@ -1,14 +1,19 @@
 import { useWishlist, useCart } from "../ScrollContext";
 import { FiTrash } from "react-icons/fi";
 export const Wishlist = () => {
-  const { wishlist, count } = useWishlist();
-  const { handleWishlist} = useWishlist();
-  const {handleCart} = useCart();
+  const { wishlist, count, handleWishlist, moveAllToCart } = useWishlist();
+
+  const {handleCart, isInCart} = useCart();
   return (
     <section className="mt-15 p-3">
       <div className="flex justify-between items-center">
         <p className="font-bold">Wishlist ({count})</p>
-        <p className="border-1 border-gray-400 text-[12px] font-bold text-center p-2 ">Move All To Bag</p>
+        <p
+          className="border-1 border-gray-400 text-[12px] font-bold text-center p-2 cursor-pointer hover:bg-gray-100"
+          onClick={() => moveAllToCart(handleCart)}
+        >
+          Move All To Bag
+        </p>
       </div>
         <div className="mt-10">
           {wishlist.length > 0?  
@@ -32,18 +37,21 @@ export const Wishlist = () => {
  />
       </div>
     </div>
-    <p className="addToCart" 
-     onClick={()=> {
-      handleCart({image:item.image, price:item.price}); 
-      handleWishlist({
-       image: item.image,
-       name: item.name,
-       price: item.price,
-     });
-    }}
-    >
-      Add To Cart
-      </p>
+  
+      <p
+  className="addToCart"
+  onClick={() => {
+    if (!isInCart(item)) {
+      handleCart({
+        image: item.image,
+        name: item.name,
+        price: item.price
+      });
+    };
+  }}
+>
+  {isInCart(item) ? "Already in Cart" : "Add To Cart"}
+</p>
   </div>
   <p className="productsName">{item.name}</p>
     <p className="productsPrice">{item.price}</p>

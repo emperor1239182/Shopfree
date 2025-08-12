@@ -1,11 +1,12 @@
 import type { product } from "./typeSet"
 import { useState } from "react"
 import { FiHeart, FiEye, FiStar } from "react-icons/fi"
-import { useWishlist } from "./ScrollContext"
+import { useSearch, useWishlist } from "./ScrollContext"
 import { Link } from "react-router-dom"
 
 export const BestSellingProducts = ({products} : product)=>{
-    const {handleWishlist, clickedItems, toggleHeart} = useWishlist();
+    const {handleWishlist, toggleHeart} = useWishlist();
+     const { searchTerm } = useSearch();
     return (
         <>
         <section className="categories mt-15">
@@ -19,7 +20,8 @@ export const BestSellingProducts = ({products} : product)=>{
 
         <div className="mt-5  ">
             <ul className="hide-scrollbar productList">
-            {products.slice(1,10).toReversed().map((goods)=> {
+            {products.slice(1,10).toReversed().filter(goods =>
+            goods.name.toLowerCase().includes(searchTerm.toLowerCase())).map((goods)=> {
                 console.log("goods.id type:", typeof goods.id, "value:", goods.id); // ✅ 
                 return (
                 <li key={goods.id}>
@@ -29,7 +31,7 @@ export const BestSellingProducts = ({products} : product)=>{
                         <div className="productDisplay">
                     <img src={goods.image} className=" object-contain h-30"/>
                     <div className="absolute top-0 right-2">
-                    <div className={`mt-3 rounded-2xl p-1 cursor-pointer ${clickedItems.includes(goods.id)? "bg-red-500 text-white" : "bg-white text-black"}`}
+                    <div className="mt-3 rounded-2xl p-1 cursor-pointer heart-icon"
                      onClick={()=>{
                     toggleHeart(goods.id);
                     handleWishlist({image:goods.image, name:goods.name, price:goods.price});

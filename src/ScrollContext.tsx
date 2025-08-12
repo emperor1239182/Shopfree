@@ -1,4 +1,3 @@
-// ScrollContext.tsx
 import { createContext, useContext, useRef } from 'react';
 import { useState } from 'react';
 import type { wishProducts } from './typeSet';
@@ -15,7 +14,10 @@ type ScrollContextType = {
 
 const ScrollContext = createContext<ScrollContextType>(null);
 const WishlistContext = createContext();
-const CartContext= createContext();
+const CartContext = createContext();
+const SearchContext = createContext();
+
+//scroll context
 
 export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const scrollRefs: ScrollRefs = {
@@ -42,7 +44,7 @@ export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ childr
 export const useScroll = () => useContext(ScrollContext);
 
 
-
+//wishlists context
 export const Wishlists = ({children})=>{
 
   const [wishlist, setWishlist] = useState([]);
@@ -86,8 +88,25 @@ export const Wishlists = ({children})=>{
     }
   };
 
+  const moveAllToCart = (handleCart: (order: wishProducts) => void) => {
+    wishlist.forEach((item) => {
+      handleCart(item);
+    });
+    setWishlist([]);
+    setCount(0);
+    setNotification("All items moved to cart successfully!");
+    setTimeout(() => setNotification(""), 1000);
+  };
+
   return (
-    <WishlistContext.Provider value={{wishlist, count, handleWishlist, toggleHeart, clickedItems}}>
+    <WishlistContext.Provider value={{
+      wishlist, 
+      count,
+      handleWishlist, 
+      toggleHeart, 
+      clickedItems,
+      moveAllToCart
+      }}>
       {children}
 
        {notification && (
@@ -103,11 +122,12 @@ export const Wishlists = ({children})=>{
 }
 export const useWishlist = () => useContext(WishlistContext);
 
+
+//Add to cart context
 export const AddToCart = ({children}) =>{
   const [cart, setCart] = useState([]);
   const [count, setCount] = useState(0);
   const [notification, setNotification] = useState("");
-  const [cartValue, setCartValue] = useState("Add To Cart")
 
   const handleCart = (order: wishProducts) =>{
     const exists = cart.some(
@@ -135,7 +155,6 @@ export const AddToCart = ({children}) =>{
       setCount((prev) => prev + 1);
       setNotification("Item Added To Cart Successfully!");
         setTimeout(() => setNotification(""), 1000);
-        setCartValue("Remove Item")
     }
   }
 
@@ -149,7 +168,12 @@ export const AddToCart = ({children}) =>{
 
 
   return (
-    <CartContext.Provider value={{cart, count, handleCart, isInCart}}>
+    <CartContext.Provider value={{
+      cart, 
+      count, 
+      handleCart, 
+      isInCart,
+      }}>
       {children}
 
     {notification && (
@@ -166,3 +190,18 @@ export const AddToCart = ({children}) =>{
 
 }
 export const useCart = () => useContext(CartContext);
+
+
+//search context
+
+export const SearchProvider = ({ children }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  return (
+    <SearchContext.Provider value={{ searchTerm, setSearchTerm }}>
+      {children}
+    </SearchContext.Provider>
+  );
+};
+
+export const useSearch = () => useContext(SearchContext);

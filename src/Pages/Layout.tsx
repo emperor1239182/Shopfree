@@ -1,19 +1,17 @@
 import { FaMagnifyingGlass, FaHeart, FaCartShopping, FaBars, FaXmark, FaUser } from "react-icons/fa6";
-import { Outlet, Link, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Outlet, Link} from "react-router-dom";
+import { useState} from "react";
 import { Footer } from "../Footer";
-import { useWishlist } from "../ScrollContext";
+import { useWishlist, useCart, useSearch } from "../ScrollContext";
 
 export const Layout = () => {
   const [navBar, setNavBar] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
-  const {count} = useWishlist();
-  const [isClicked, setIsClicked] = useState(false);
+  const {count : wishlistCount} = useWishlist();
+  const {count : cartCount} = useCart();
+  const {searchTerm, setSearchTerm} = useSearch();
 
-  const location = useLocation();
-useEffect(() => {
-  setIsClicked(false);
-}, [location]);
+  
 
 
   return (
@@ -26,26 +24,29 @@ useEffect(() => {
             <li onClick={() => setNavBar(false)} className="relative">
 
               <Link to="/wishlist">
-        <div className={`rounded-2xl p-1 cursor-pointer ${
-        isClicked ? "bg-red-500 text-white" : "bg-white text-black"
-      }`} onClick={() => setIsClicked(!isClicked)}>
+        <div className="rounded-2xl p-1 cursor-pointer navIcons">
               <FaHeart/>
               </div>
               </Link>
 
-      {count > 0 && (
+      {wishlistCount > 0 && (
         <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
-          {count}
+          {wishlistCount}
         </span>
       )}
 
             </li>
-            <li onClick={() => setNavBar(false)}>
+            <li onClick={() => setNavBar(false)} className="relative">
               <Link to="/cart">
               <div className="navIcons">
               <FaCartShopping />
               </div>
               </Link>
+              {cartCount > 0 && (
+        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+          {cartCount}
+        </span>
+      )}
             </li>
             <div className="navIcons">
             <FaBars className="sm:hidden" onClick={() => setNavBar((prev) => !prev)} />
@@ -70,29 +71,41 @@ useEffect(() => {
 
             <div className="flex justify-between gap-4 items-center">
               <div className="search flex bg-gray-100 w-37 px-2 items-center mt-4 sm:mt-auto">
-                <input type="text" placeholder="what are you looking for?" className="placeholder:text-[8px] w-30 text-black" />
+
+                <input
+                type="text"
+                placeholder="what are you looking for?"
+                className="placeholder:text-[8px] w-30 text-black"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder= "what are you looking for?"
+                className="placeholder:text-[8px] w-30 text-black" 
+                />
+
                 <FaMagnifyingGlass />
               </div>
 
               <li className="hidden sm:block relative">
-                <Link to="/wishlist">
-                 <div className={`rounded-2xl p-1 cursor-pointer ${
-        isClicked ? "bg-red-500 text-white" : "bg-white text-black"
-      }`} onClick={() => setIsClicked(!isClicked)}>
+                <Link to="/wishlist" className="relative">
+                 <div className="rounded-2xl p-1 cursor-pointer navIcons">
               <FaHeart />
-              {count > 0 && (
-        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
-          {count}
-        </span>
-      )}
-
               </div>
               </Link>
+              {wishlistCount > 0 && (
+        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+          {wishlistCount}
+        </span>
+      )}
               </li>
-              <li className="hidden sm:block">
+              <li className="hidden sm:block relative">
                 <Link to="/cart">
                 <div className="navIcons">
                 <FaCartShopping />
+                {cartCount > 0 && (
+        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+          {cartCount}
+        </span>
+      )}
                 </div>
                 </Link>
                 </li>

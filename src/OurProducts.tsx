@@ -1,11 +1,13 @@
 import { FiArrowLeft, FiArrowRight, FiHeart, FiEye, FiStar } from "react-icons/fi"
-import { useCart, useScroll, useWishlist} from "./ScrollContext"
+import { useCart, useScroll, useWishlist, useSearch} from "./ScrollContext"
 import { Link } from "react-router-dom";
 
 export const OurProducts = ({products})=>{
     const {scrollRefs, scrollLeft, scrollRight} = useScroll();
     const { handleWishlist} = useWishlist();
     const {handleCart, isInCart} = useCart();
+    const { searchTerm } = useSearch();
+
 
     return (
         <>
@@ -23,7 +25,8 @@ export const OurProducts = ({products})=>{
 
              <div className="mt-5  ">
             <ul className="hide-scrollbar grid grid-rows-2 auto-cols-[minmax(160px,_1fr)] grid-flow-col gap-5  overflow-auto" ref={scrollRefs.ourProducts}>
-            {products.map((goods)=>(
+            {products.filter(goods =>
+            goods.name.toLowerCase().includes(searchTerm.toLowerCase())).map((goods)=>(
                 <li key={goods.id}>
 
                     <div className="w-40">
