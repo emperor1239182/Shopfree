@@ -7,7 +7,7 @@
             "oldPrice" : "$160",
             "discount" : "-40%",
             "category": "Phones",
-            "image": "/public/images/Iphone.png"
+            "image": "/images/Iphone.png"
         },
         {
             "id": 2,
