@@ -10,7 +10,7 @@ export const NewArrivals: FC = () => {
 
         <div className="newArrivals">
           <div className="arrivalProducts row-span-2">
-            <img src="/public/Ps5 set.png" alt="PlayStation 5" />
+            <img src="/Ps5 set.png" alt="PlayStation 5" />
             <div className="addsDetails">
               <h4 className="font-bold">PlayStation 5</h4>
               <p>
