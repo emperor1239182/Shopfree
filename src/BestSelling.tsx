@@ -1,5 +1,4 @@
 import type { product } from "./typeSet"
-import { useState } from "react"
 import { FiHeart, FiEye, FiStar } from "react-icons/fi"
 import { useSearch, useWishlist } from "./ScrollContext"
 import { Link } from "react-router-dom"
@@ -14,7 +13,7 @@ export const BestSellingProducts = ({products} : product)=>{
 
             <div className="intro">
             <h3 className="font-bold">Best Selling Products</h3>
-            <p className="bg-red-500 text-center text-white text-[10px] px-3 py-1">View All</p>
+            <p className="bg-red-500 text-center text-white text-[10px] px-3 py-1"><Link to="/shop">View All</Link> </p>
              </div>
         </section>
 
@@ -22,7 +21,6 @@ export const BestSellingProducts = ({products} : product)=>{
             <ul className="hide-scrollbar productList">
             {products.slice(1,10).toReversed().filter(goods =>
             goods.name.toLowerCase().includes(searchTerm.toLowerCase())).map((goods)=> {
-                console.log("goods.id type:", typeof goods.id, "value:", goods.id); // ✅ 
                 return (
                 <li key={goods.id}>
 

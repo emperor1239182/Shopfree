@@ -1,4 +1,4 @@
-import { createContext, useContext, useRef, useState, useEffect } from 'react';
+import { createContext, useContext, useRef, useState, useEffect, useMemo } from 'react';
 import type { wishProducts } from './typeSet';
 
 type ScrollRefs = {
@@ -86,7 +86,7 @@ useEffect(() => {
       setWishlist(updatedList);
       setCount((prev) => Math.max(prev - 1, 0));
       setNotification("Item Removed From Your Wishlist");
-    setTimeout(() => setNotification(""), 1000);
+      setTimeout(() => setNotification(""), 1000);
     } else {
       // Add item
       setWishlist((prev) => [...prev, wish]);
@@ -145,6 +145,7 @@ export const AddToCart = ({children}) =>{
 
   const [count, setCount] = useState(0);
   const [notification, setNotification] = useState("");
+   const [quantities, setQuantities] = useState({});
 
   const handleCart = (order: wishProducts) =>{
     const exists = cart.some(
@@ -183,6 +184,35 @@ export const AddToCart = ({children}) =>{
         cartItem.image === item.image
     );
 
+// Generate stable IDs for each product if missing
+
+    const cartWithIds = useMemo(() => {
+    return cart.map((item, index) => ({
+      ...item,
+      _uid: item.id ?? `${item.name}-${index}` // fallback ID
+    }));
+  }, [cart]);
+
+  const handleQuantityChange = (uid, value) => {
+    setQuantities((prev) => ({
+      ...prev,
+      [uid]: Number(value)
+    }));
+  };
+
+  const totalAmount = cartWithIds.reduce((sum, item) => {
+    const numericPrice = parseFloat(
+      item.price?.toString().replace(/[^0-9.-]+/g, "")
+    );
+    const qty = quantities[item._uid] || 1;
+    return sum + (numericPrice * qty || 0);
+  }, 0);
+
+const Order = ()=>{
+  setCart([])
+  setNotification("Successfully Ordered All Items ✅")
+  setTimeout(()=> setNotification(""), 3000);
+}
 
   return (
     <CartContext.Provider value={{
@@ -190,7 +220,13 @@ export const AddToCart = ({children}) =>{
       count, 
       handleCart, 
       isInCart,
-      setCart
+      setCart,
+      cartWithIds,
+      handleQuantityChange,
+      totalAmount,
+      quantities,
+      setQuantities,
+      Order
       }}>
       {children}
 

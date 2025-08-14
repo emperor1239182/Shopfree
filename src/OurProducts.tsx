@@ -1,8 +1,9 @@
 import { FiArrowLeft, FiArrowRight, FiHeart, FiEye, FiStar } from "react-icons/fi"
 import { useCart, useScroll, useWishlist, useSearch} from "./ScrollContext"
 import { Link } from "react-router-dom";
+import type { allProducts } from "./typeSet";
 
-export const OurProducts = ({products})=>{
+export const OurProducts = ({products} : allProducts)=>{
     const {scrollRefs, scrollLeft, scrollRight} = useScroll();
     const { handleWishlist} = useWishlist();
     const {handleCart, isInCart} = useCart();

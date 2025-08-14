@@ -88,7 +88,7 @@ html, body {
             @apply bg-red-500 text-center p-1 rounded w-30 text-[9px] m-auto
         }
         .addToCart{
-            @apply bg-black text-white text-center text-[10px] absolute bottom-0 left-0 right-0 p-1
+            @apply bg-black text-white text-center text-[10px] absolute bottom-0 left-0 right-0 p-1 cursor-pointer
         }
         .productList{
             @apply  flex gap-4 overflow-auto
@@ -212,6 +212,9 @@ html, body {
         }
         .error{
             @apply text-lg font-bold text-center
+        }
+        .bill{
+            @apply  w-[250px] border-2 border-gray-300 p-2 mt-8 flex flex-col gap-2 justify-center
         }
 }
 

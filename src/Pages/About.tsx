@@ -1,4 +1,5 @@
 import { FaHouse, FaDollarSign, FaBagShopping, FaMoneyCheckDollar, FaInstagram, FaTwitter, FaLinkedin, FaCar, FaHeadphones, FaCheck  } from "react-icons/fa6"
+import { ScrollSection } from "./Framer"
 
 export const About = ()=> {
 
@@ -79,6 +80,7 @@ export const About = ()=> {
         <>
         <section className="about p-4 mt-20">
 
+            <ScrollSection>
             <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
                 <div className="story">
                 <h1 className="font-bold text-2xl">Our Story</h1>
@@ -93,7 +95,9 @@ export const About = ()=> {
                 </div>
                 <img src="/public/images/Two girls shopping.png" className="max-w-[400px] lg:max-w-[500px]"/>
             </div>
+            </ScrollSection>
 
+            <ScrollSection delay={0.2}>
             <div className="descriptions">
 
             {Object.entries(About).map(([key, value])=>(
@@ -105,7 +109,9 @@ export const About = ()=> {
             ))}
 
             </div>
+            </ScrollSection>
 
+            <ScrollSection delay={0.2}>
             <div className="team">
                 {Object.entries(Team).map(([key, value])=>(
                     <div key={key}>
@@ -121,7 +127,9 @@ export const About = ()=> {
                     </div>
                 ))}
             </div>
+            </ScrollSection>
 
+            <ScrollSection delay={0.2}>
             <div className="descriptions">
                 {Object.entries(guarantees).map(([key, value]) => (
                   <div key={key} className="desc">
@@ -131,6 +139,7 @@ export const About = ()=> {
                   </div>
                 ))}
             </div>
+            </ScrollSection>
 
         </section>
 

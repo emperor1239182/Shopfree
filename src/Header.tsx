@@ -6,7 +6,7 @@ import { Categories } from "./Categories"
 import { BestSellingProducts } from "./BestSelling"
 import { OurProducts } from "./OurProducts"
 import { NewArrivals } from "./NewArrival"
-
+import { ScrollSection } from "./Pages/Framer" 
 
 
 export const Header = ()=> {
@@ -91,6 +91,8 @@ export const Header = ()=> {
         <>
         <main className="px-3 mt-20">
             <p className="error">{errorMessage}</p>
+
+            <ScrollSection>
         <header>
 
             <div className="adds ">
@@ -102,11 +104,21 @@ export const Header = ()=> {
                 <img src="/public/images/Iphone.png" className="w-[120px] sm:w-[240px] "/>
             </div>
         </header>
+        </ScrollSection>
 
+        <ScrollSection delay={0.2}>
         <FlashSale products={products} /> 
-             <Categories products={products}/>
-             <BestSellingProducts products={products}/>
+        </ScrollSection>
 
+        <ScrollSection delay={0.2}>
+             <Categories products={products}/>
+             </ScrollSection>
+
+             <ScrollSection delay={0.2}>
+             <BestSellingProducts products={products}/>
+             </ScrollSection>
+
+             <ScrollSection delay={0.2}>
              <div className="adds mt-10 flex-col sm:flex-row">
                 <div className="addsText"> 
                     <p className="text-[10px] text-green-400 font-bold">Categories</p>
@@ -121,10 +133,17 @@ export const Header = ()=> {
                 </div>
                 <img src="/public/images/Jbl.png" className="max-w-[240px] self-start "/>
             </div>
+            </ScrollSection>
 
+            <ScrollSection delay={0.2}>
             <OurProducts products={products}/>
-            <NewArrivals/>
+            </ScrollSection>
 
+            <ScrollSection delay={0.1}>
+            <NewArrivals/>
+            </ScrollSection>
+
+            <ScrollSection delay={0.2}>
             <div className="descriptions">
                 {Object.entries(guarantees).map(([key, value]) => (
                   <div key={key} className="desc">
@@ -134,6 +153,7 @@ export const Header = ()=> {
                   </div>
                 ))}
             </div>
+            </ScrollSection>
 
         </main>
         </>

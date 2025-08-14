@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { FiStar, FiHeart, FiEye} from "react-icons/fi"
 import { Link } from "react-router-dom";
 import { useWishlist, useCart, useSearch } from "../ScrollContext";
+import { ScrollSection } from "./Framer";
 export const Shop = () =>{
      const [products, setProducts] = useState([]);
      const [errorMessage, setErrorMessage] = useState('');
@@ -40,6 +41,7 @@ export const Shop = () =>{
             <ul className="hide-scrollbar grid grid-rows-5 auto-cols-[minmax(160px,_1fr)] grid-flow-col gap-5  overflow-auto">
             {products.filter(goods =>
             goods.name.toLowerCase().includes(searchTerm.toLowerCase())).map((goods)=>(
+                <ScrollSection>
                 <li key={goods.id}>
 
                     <div className="w-40">
@@ -71,6 +73,7 @@ export const Shop = () =>{
 
                     </div>
                 </li>
+                </ScrollSection>
             ))}
             </ul>
         </div>

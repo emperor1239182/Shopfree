@@ -13,7 +13,7 @@ export const NewArrivals = ()=>{
                         <div className="addsDetails">
                             <h4 className="font-bold">PlayStation 5</h4>
                             <p>Black and white version of the PS5 coming out on sale</p>
-                            <Link to="/contact" className="font-extrabold ">Shop Now</Link>
+                            <Link to="/shop" className="font-extrabold ">Shop Now</Link>
                         </div>
                     </div>
 
@@ -21,7 +21,7 @@ export const NewArrivals = ()=>{
                         <div className=" w-[60%] addsDetails relative mt-20">
                             <p className="font-bold sm:text-xl">Women's Collections</p>
                             <p className="text-[8px] sm:text-[12px]">Featured womens collection that gives you another vibe.</p>
-                            <Link to="/" className="text-[8px] sm:text-[12px] font-bold">Shop Now</Link>
+                            <Link to="/shop" className="text-[8px] sm:text-[12px] font-bold">Shop Now</Link>
                         </div>
                         <img src="/public/images/womanWearingHat.png" className="max-w-[100px] sm:max-w-[300px] object-cover"/>
                     </div>
@@ -31,7 +31,7 @@ export const NewArrivals = ()=>{
                         <div className="addsDetails">
                             <h4 className="font-bold">Speakers</h4>
                             <p>Amazon wireless speakers</p>
-                            <Link to="/" className="font-extrabold">Shop Now</Link>
+                            <Link to="/shop" className="font-extrabold">Shop Now</Link>
                         </div>
                     </div>
 
@@ -40,7 +40,7 @@ export const NewArrivals = ()=>{
                         <div className="addsDetails">
                             <h4 className="font-bold">Perfume</h4>
                             <p>GUCCI INTENSE OUD EDP</p>
-                            <Link to="/" className="font-extrabold">Shop Now</Link>
+                            <Link to="/shop" className="font-extrabold">Shop Now</Link>
                         </div>
                     </div>
 

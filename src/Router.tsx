@@ -10,6 +10,7 @@ import { Wishlist } from "./Pages/Wishlist"
 import { NoPage } from "./Pages/No page"
 import { Login } from "./Pages/LogIn"
 import { Shop } from "./Pages/Shop"
+import { Checkout } from "./Pages/Checkout"
 
 export const Router = ()=>{
     return (
@@ -26,6 +27,7 @@ export const Router = ()=>{
           <Route path="account" element={<Account/>}/>
           <Route path="login" element={<Login/>}/>
           <Route path="shop" element={<Shop/>}/>
+           <Route path="checkout" element={<Checkout/>}/>
           <Route path="*" element={<NoPage/>}/>
         </Route>
     </Routes>

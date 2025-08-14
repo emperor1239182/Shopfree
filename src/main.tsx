@@ -18,5 +18,5 @@ createRoot(document.getElementById('root')!).render(
     </AddToCart>
     </Wishlists>
     </ScrollProvider>
-  </StrictMode>,
-)
+  </StrictMode>
+);

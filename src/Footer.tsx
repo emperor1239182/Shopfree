@@ -34,7 +34,7 @@ export const Footer = ()=>{
                 <h1 className="font-bold text-[13px]">Quick Link</h1>
                 <p>Privacy Policy</p>
                 <p>Terms Of Use</p>
-                <p><Link to="/faq">FAQ</Link></p>
+                <p>FAQ</p>
                 <p><Link to="/contact">Contact</Link></p>
              </div>
 
