@@ -99,7 +99,7 @@ export const Header = ()=> {
                 <div className="addsText">
                    <p className="flex items-center gap-4 text-[12px]"> <FaApple size={50}/> iphone14 series </p>
                    <p>Up to 10% off Voucher</p>
-                   <Link to="/about" className="text-[12px] flex items-center gap-2 underline">shop now <FaArrowRight/></Link>
+                   <Link to="/shop" className="text-[12px] flex items-center gap-2 underline">shop now <FaArrowRight/></Link>
                 </div>
                 <img src="/Iphone.png" className="w-[120px] sm:w-[240px] "/>
             </div>
@@ -131,7 +131,7 @@ export const Header = ()=> {
             </div>
                    <Link to="/about" className="text-[12px] bg-green-400 text-center w-30 p-3 ">Buy now </Link>
                 </div>
-                <img src="/public/Jbl.png" className="max-w-[240px] self-start "/>
+                <img src="/Jbl.png" className="max-w-[240px] self-start "/>
             </div>
             </ScrollSection>
 

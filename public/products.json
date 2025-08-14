@@ -7,7 +7,7 @@
             "oldPrice" : "$160",
             "discount" : "-40%",
             "category": "Phones",
-            "image": "/public//Iphone.png"
+            "image": "/Iphone.png"
         },
         {
             "id": 2,
@@ -16,7 +16,7 @@
             "oldPrice" : "$160",
             "discount" : "-35%",
             "category": "Gaming",
-            "image": "/public/Red ps pad.png"
+            "image": "/Red ps pad.png"
         },
         {
             "id": 3,
@@ -25,7 +25,7 @@
             "oldPrice" : "$1160",
             "discount" : "-30%",
             "category": "Computers",
-            "image": "/public/Keyboard.png"
+            "image": "/Keyboard.png"
         },
         {
             "id": 4,
@@ -34,7 +34,7 @@
             "oldPrice" : "$730",
             "discount" : "-25%",
             "category": "Furnitures",
-            "image": "/public/furniture.png"
+            "image": "/furniture.png"
         },
         {
             "id": 5,
@@ -43,7 +43,7 @@
             "oldPrice" : "$560",
             "discount" : "-55%",
             "category": "Clothings",
-            "image": "/public/Pink sweater.png"
+            "image": "/Pink sweater.png"
         },
          {
             "id": 6,
@@ -52,7 +52,7 @@
             "oldPrice" : "$730",
             "discount" : "-62%",
             "category": "Cameras",
-            "image": "/public/Camera.png"
+            "image": "/Camera.png"
         },
         {
             "id": 7,
@@ -61,7 +61,7 @@
             "oldPrice" : "$428",
             "discount" : "-20%",
             "category": "Clothings",
-            "image": "/public/Gucci bag.png"
+            "image": "/Gucci bag.png"
         },
         {
             "id": 8,
@@ -70,7 +70,7 @@
             "oldPrice" : "$700",
             "discount" : "-60%",
             "category": "Computers",
-            "image": "/public/Home theater.png"
+            "image": "/Home theater.png"
         },
         {
             "id": 9,
@@ -79,7 +79,7 @@
             "oldPrice" : "$310",
             "discount" : "-15%",
             "category": "Furnitures",
-            "image": "/public/Book shelf.png"
+            "image": "/Book shelf.png"
         },
         {
             "id": 10,
@@ -88,7 +88,7 @@
             "oldPrice" : "$860",
             "discount" : "-42%",
             "category": "Headphones",
-            "image": "/public/Jbl.png"
+            "image": "/Jbl.png"
         },
         {
             "id": 11,
@@ -97,7 +97,7 @@
             "oldPrice" : "$2000",
             "discount" : "-90%",
             "category": "Computers",
-            "image": "/public/Laptop.png"
+            "image": "/Laptop.png"
         },
         {
             "id": 12,
@@ -106,7 +106,7 @@
             "oldPrice" : "$800",
             "discount" : "-25%",
             "category": "Gaming",
-            "image": "/public/Tv.png"
+            "image": "/Tv.png"
         },
         {
             "id": 13,
@@ -115,7 +115,7 @@
             "oldPrice" : "$1140",
             "discount" : "-86%",
             "category": "Clothings",
-            "image": "/public/Perfume - Copy.png"
+            "image": "/Perfume - Copy.png"
         },
         {
             "id": 14,
@@ -124,7 +124,7 @@
             "oldPrice" : "$2260",
             "discount" : "-70%",
             "category": "Gaming",
-            "image": "/public/Red car.png"
+            "image": "/Red car.png"
         },
         {
             "id": 15,
@@ -133,7 +133,7 @@
             "oldPrice" : "$5550",
             "discount" : "-100%",
             "category": "Clothings",
-            "image": "/public/Soccer boot.png"
+            "image": "/Soccer boot.png"
         },
         {
             "id": 16,
@@ -142,7 +142,7 @@
             "oldPrice" : "$5550",
             "discount" : "-100%",
             "category": "Computers",
-            "image": "/public/Speakers.png"
+            "image": "/Speakers.png"
         },
         {
             "id": 17,
@@ -151,7 +151,7 @@
             "oldPrice" : "$400",
             "discount" : "-11%",
             "category": "Gaming",
-            "image": "/public/Black ps pad.png"
+            "image": "/Black ps pad.png"
         },
         {
             "id": 19,
@@ -160,7 +160,7 @@
             "oldPrice" : "$975",
             "discount" : "-30%",
             "category": "Clothings",
-            "image": "/public/Green jacket.png"
+            "image": "/Green jacket.png"
         },
         {
             "id": 20,
@@ -169,7 +169,7 @@
             "oldPrice" : "$220",
             "discount" : "-40%",
             "category": "Gaming",
-            "image": "/public/Ps5 set.png"
+            "image": "/Ps5 set.png"
         }
         
     ]

@@ -17,7 +17,7 @@ export const Login = () => {
   return (
     <section className="register">
       <img
-        src="/public/Phone cart.png"
+        src="/Phone cart.png"
         className="max-w-[500px] hidden sm:block"
         alt="Phone cart"
       />

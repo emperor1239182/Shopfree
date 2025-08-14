@@ -36,14 +36,14 @@ export const NewArrivals: FC = () => {
               </Link>
             </div>
             <img
-              src="/public/womanWearingHat.png"
+              src="/womanWearingHat.png"
               alt="Woman Wearing Hat"
               className="max-w-[100px] sm:max-w-[300px] object-cover"
             />
           </div>
 
           <div className="arrivalProducts">
-            <img src="/public/Speakers.png" alt="Speakers" />
+            <img src="/Speakers.png" alt="Speakers" />
             <div className="addsDetails">
               <h4 className="font-bold">Speakers</h4>
               <p>Amazon wireless speakers</p>
@@ -54,7 +54,7 @@ export const NewArrivals: FC = () => {
           </div>
 
           <div className="arrivalProducts">
-            <img src="/public/Perfume - Copy.png" alt="Perfume" />
+            <img src="/Perfume - Copy.png" alt="Perfume" />
             <div className="addsDetails">
               <h4 className="font-bold">Perfume</h4>
               <p>GUCCI INTENSE OUD EDP</p>

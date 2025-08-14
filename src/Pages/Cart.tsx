@@ -64,7 +64,7 @@ export const Cart = () => {
       ) : (
         <div className="flex justify-center flex-col items-center">
           <img
-            src="/public/emptybox.jpeg"
+            src="/emptybox.jpeg"
             alt="Empty cart"
             className="max-w-[200px] h-70 object-contain"
           />
