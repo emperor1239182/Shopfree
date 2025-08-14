@@ -101,7 +101,7 @@ export const Header = ()=> {
                    <p>Up to 10% off Voucher</p>
                    <Link to="/about" className="text-[12px] flex items-center gap-2 underline">shop now <FaArrowRight/></Link>
                 </div>
-                <img src="/public/Iphone.png" className="w-[120px] sm:w-[240px] "/>
+                <img src="/Iphone.png" className="w-[120px] sm:w-[240px] "/>
             </div>
         </header>
         </ScrollSection>
