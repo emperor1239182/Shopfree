@@ -79,7 +79,6 @@ export const Layout = () => {
                 className="placeholder:text-[8px] w-30 text-black"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder= "what are you looking for?"
                 className="placeholder:text-[8px] w-30 text-black" 
                 />
 

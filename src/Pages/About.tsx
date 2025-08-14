@@ -34,19 +34,19 @@ export const About = ()=> {
 
           const Team ={
             Tom: {
-                img: "/public/images/Man in blue shirt.png",
+                img: "/public/Man in blue shirt.png",
                 name: "Tom Cruise",
                 position: "Founder & Chairman",
                 socials: [icons[4], icons[5], icons[6]]
             },
             Watson: {
-                img: "/public/images/Girl in black suit.png",
+                img: "/public/Girl in black suit.png",
                 name: "Emma Watson",
                 position: "Managing Director",
                 socials: [icons[4], icons[5], icons[6]]
             },
             Smith: {
-                img: "/public/images/Man in black suit.png",
+                img: "/public/Man in black suit.png",
                 name: "Will Smith",
                 position: "Product Designer",
                 socials: [icons[4], icons[5], icons[6]]
@@ -93,7 +93,7 @@ export const About = ()=> {
                     Exclusive offers a diverse assotment in categories ranging from consumers.
                 </p>
                 </div>
-                <img src="/public/images/Two girls shopping.png" className="max-w-[400px] lg:max-w-[500px]"/>
+                <img src="/public/Two girls shopping.png" className="max-w-[400px] lg:max-w-[500px]"/>
             </div>
             </ScrollSection>
 

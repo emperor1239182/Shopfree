@@ -1,7 +1,13 @@
-// components/ScrollSection.jsx
+// components/ScrollSection.tsx
 import { motion } from "framer-motion";
+import type { ReactNode } from "react";
 
-export const ScrollSection = ({ children, delay = 0 }) => {
+interface ScrollSectionProps {
+  children: ReactNode;
+  delay?: number;
+}
+
+export const ScrollSection = ({ children, delay = 0 }: ScrollSectionProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -12,5 +18,4 @@ export const ScrollSection = ({ children, delay = 0 }) => {
       {children}
     </motion.div>
   );
-}
-
+};

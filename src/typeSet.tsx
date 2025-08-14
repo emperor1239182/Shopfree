@@ -14,4 +14,4 @@ export type wishProducts = {
     image: string
     name: string
     price: string
-  }
+}

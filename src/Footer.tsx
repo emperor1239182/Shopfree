@@ -42,10 +42,10 @@ export const Footer = ()=>{
                 <h1 className="font-bold text-[18px]">Download App</h1>
                 <p>Save $3 with App New Users Only</p>
                 <div className="h-18 flex gap-2">
-                <img src="/public/images/Qr Code.png" className="max-w-[60px]"/>
+                <img src="/Qr Code.png" className="max-w-[60px]"/>
                 <div>
-                <img src="/public/images/playStore.png" className="max-w-[120px]"/>
-                <img src="/public/images/download-appstore.png" className="max-w-[120px]"/>
+                <img src="/playStore.png" className="max-w-[120px]"/>
+                <img src="/download-appstore.png" className="max-w-[120px]"/>
                 </div>
                 </div>
              </div>

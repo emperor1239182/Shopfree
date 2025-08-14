@@ -1,6 +1,15 @@
-import { createContext, useContext, useRef, useState, useEffect, useMemo } from 'react';
-import type { wishProducts } from './typeSet';
+import {
+  createContext,
+  useContext,
+  useRef,
+  useState,
+  useEffect,
+  useMemo,
+  ReactNode,
+} from "react";
+import type { wishProducts } from "./typeSet";
 
+// ================= Scroll Context =================
 type ScrollRefs = {
   [key: string]: React.RefObject<HTMLUListElement | null>;
 };
@@ -9,16 +18,13 @@ type ScrollContextType = {
   scrollRefs: ScrollRefs;
   scrollLeft: (id: keyof ScrollRefs) => void;
   scrollRight: (id: keyof ScrollRefs) => void;
-} | null;
+};
 
-const ScrollContext = createContext<ScrollContextType>(null);
-const WishlistContext = createContext();
-const CartContext = createContext();
-const SearchContext = createContext();
+const ScrollContext = createContext<ScrollContextType | null>(null);
 
-//scroll context
-
-export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const ScrollProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const scrollRefs: ScrollRefs = {
     flashSales: useRef<HTMLUListElement>(null),
     ourProducts: useRef<HTMLUListElement>(null),
@@ -26,12 +32,12 @@ export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     categories: useRef<HTMLUListElement>(null),
   };
 
-  const scrollLeft = (id: keyof typeof scrollRefs) => {
-    scrollRefs[id].current?.scrollBy({ left: -300, behavior: 'smooth' });
+  const scrollLeft = (id: keyof ScrollRefs) => {
+    scrollRefs[id].current?.scrollBy({ left: -300, behavior: "smooth" });
   };
 
-  const scrollRight = (id: keyof typeof scrollRefs) => {
-    scrollRefs[id].current?.scrollBy({ left: 300, behavior: 'smooth' });
+  const scrollRight = (id: keyof ScrollRefs) => {
+    scrollRefs[id].current?.scrollBy({ left: 300, behavior: "smooth" });
   };
 
   return (
@@ -40,32 +46,47 @@ export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     </ScrollContext.Provider>
   );
 };
-export const useScroll = () => useContext(ScrollContext);
 
+export const useScroll = (): ScrollContextType => {
+  const context = useContext(ScrollContext);
+  if (!context) {
+    throw new Error("useScroll must be used within a ScrollProvider");
+  }
+  return context;
+};
 
-//wishlists context
-export const Wishlists = ({children})=>{
+// ================= Wishlist Context =================
+type WishlistContextType = {
+  wishlist: wishProducts[];
+  count: number;
+  handleWishlist: (wish: wishProducts) => void;
+  toggleHeart: (id: number) => void;
+  clickedItems: number[];
+  moveAllToCart: (handleCart: (order: wishProducts) => void) => void;
+};
 
-  const [wishlist, setWishlist] = useState(() => {
+const WishlistContext = createContext<WishlistContextType | null>(null);
+
+export const Wishlists: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [wishlist, setWishlist] = useState<wishProducts[]>(() => {
     const storedWishes = localStorage.getItem("wishlist");
     return storedWishes ? JSON.parse(storedWishes) : [];
   });
 
-  const [count, setCount] = useState(0);
-  const [notification, setNotification] = useState("");
-  const [clickedItems, setClickedItems] = useState<number[]>([]);;
+  const [count, setCount] = useState<number>(0);
+  const [notification, setNotification] = useState<string>("");
+  const [clickedItems, setClickedItems] = useState<number[]>([]);
 
   const toggleHeart = (id: number) => {
-  setClickedItems((prev) =>
-    prev.includes(id) ? prev.filter((itemId) => itemId !== id) : [...prev, id]
-  );
-};
+    setClickedItems((prev) =>
+      prev.includes(id) ? prev.filter((itemId) => itemId !== id) : [...prev, id]
+    );
+  };
 
-useEffect(() => {
+  useEffect(() => {
     localStorage.setItem("wishlist", JSON.stringify(wishlist));
     setCount(wishlist.length);
   }, [wishlist]);
-
 
   const handleWishlist = (wish: wishProducts) => {
     const exists = wishlist.some(
@@ -76,30 +97,25 @@ useEffect(() => {
     );
 
     if (exists) {
-      // Remove item
       const updatedList = wishlist.filter(
         (item) =>
           item.name !== wish.name ||
           item.price !== wish.price ||
           item.image !== wish.image
-           );
+      );
       setWishlist(updatedList);
       setCount((prev) => Math.max(prev - 1, 0));
       setNotification("Item Removed From Your Wishlist");
-      setTimeout(() => setNotification(""), 1000);
     } else {
-      // Add item
       setWishlist((prev) => [...prev, wish]);
       setCount((prev) => prev + 1);
       setNotification("Item Added To Your Wishlist");
-        setTimeout(() => setNotification(""), 1000);
     }
+    setTimeout(() => setNotification(""), 1000);
   };
 
   const moveAllToCart = (handleCart: (order: wishProducts) => void) => {
-    wishlist.forEach((item) => {
-      handleCart(item);
-    });
+    wishlist.forEach((item) => handleCart(item));
     setWishlist([]);
     setCount(0);
     setNotification("All items moved to cart successfully!");
@@ -107,47 +123,77 @@ useEffect(() => {
   };
 
   return (
-    <WishlistContext.Provider value={{
-      wishlist, 
-      count,
-      handleWishlist, 
-      toggleHeart, 
-      clickedItems,
-      moveAllToCart
-      }}>
+    <WishlistContext.Provider
+      value={{
+        wishlist,
+        count,
+        handleWishlist,
+        toggleHeart,
+        clickedItems,
+        moveAllToCart,
+      }}
+    >
       {children}
 
-       {notification && (
-  <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
-    <div className="bg-white/30 dark:bg-black/40 backdrop-blur-md rounded-lg shadow-lg p-4 max-w-sm w-full text-center animate-fade-in">
-      <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">Notification</h2>
-      <p className="text-sm text-gray-700 dark:text-gray-200">{notification}</p>
-    </div>
-  </div>
-)}
+      {notification && (
+        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+          <div className="bg-white/30 dark:bg-black/40 backdrop-blur-md rounded-lg shadow-lg p-4 max-w-sm w-full text-center animate-fade-in">
+            <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+              Notification
+            </h2>
+            <p className="text-sm text-gray-700 dark:text-gray-200">
+              {notification}
+            </p>
+          </div>
+        </div>
+      )}
     </WishlistContext.Provider>
-  )
-}
-export const useWishlist = () => useContext(WishlistContext);
+  );
+};
 
+export const useWishlist = (): WishlistContextType => {
+  const context = useContext(WishlistContext);
+  if (!context) {
+    throw new Error("useWishlist must be used within a Wishlists provider");
+  }
+  return context;
+};
 
-//Add to cart context
-export const AddToCart = ({children}) =>{
- const [cart, setCart] = useState(() => {
-  const storedCart = localStorage.getItem("cart");
+// ================= Cart Context =================
+type CartItemWithUid = wishProducts & { _uid: string };
+
+type CartContextType = {
+  cart: wishProducts[];
+  count: number;
+  handleCart: (order: wishProducts) => void;
+  isInCart: (item: wishProducts) => boolean;
+  setCart: React.Dispatch<React.SetStateAction<wishProducts[]>>;
+  cartWithIds: CartItemWithUid[];
+  handleQuantityChange: (uid: string, value: number) => void;
+  totalAmount: number;
+  quantities: Record<string, number>;
+  setQuantities: React.Dispatch<React.SetStateAction<Record<string, number>>>;
+  Order: () => void;
+};
+
+const CartContext = createContext<CartContextType | null>(null);
+
+export const AddToCart: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [cart, setCart] = useState<wishProducts[]>(() => {
+    const storedCart = localStorage.getItem("cart");
     return storedCart ? JSON.parse(storedCart) : [];
   });
+
+  const [count, setCount] = useState<number>(0);
+  const [notification, setNotification] = useState<string>("");
+  const [quantities, setQuantities] = useState<Record<string, number>>({});
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
     setCount(cart.length);
   }, [cart]);
 
-  const [count, setCount] = useState(0);
-  const [notification, setNotification] = useState("");
-   const [quantities, setQuantities] = useState({});
-
-  const handleCart = (order: wishProducts) =>{
+  const handleCart = (order: wishProducts) => {
     const exists = cart.some(
       (item) =>
         item.name === order.name &&
@@ -156,25 +202,22 @@ export const AddToCart = ({children}) =>{
     );
 
     if (exists) {
-      // Remove item
       const updatedList = cart.filter(
         (item) =>
           item.name !== order.name ||
           item.price !== order.price ||
           item.image !== order.image
-           );
+      );
       setCart(updatedList);
       setCount((prev) => Math.max(prev - 1, 0));
       setNotification("Item Removed From Your Cart");
-    setTimeout(() => setNotification(""), 1000);
     } else {
-      // Add item
       setCart((prev) => [...prev, order]);
       setCount((prev) => prev + 1);
       setNotification("Item Added To Cart Successfully!");
-        setTimeout(() => setNotification(""), 1000);
     }
-  }
+    setTimeout(() => setNotification(""), 1000);
+  };
 
   const isInCart = (item: wishProducts) =>
     cart.some(
@@ -184,19 +227,17 @@ export const AddToCart = ({children}) =>{
         cartItem.image === item.image
     );
 
-// Generate stable IDs for each product if missing
-
-    const cartWithIds = useMemo(() => {
+  const cartWithIds: CartItemWithUid[] = useMemo(() => {
     return cart.map((item, index) => ({
       ...item,
-      _uid: item.id ?? `${item.name}-${index}` // fallback ID
+      _uid: (item as any).id ?? `${item.name}-${index}`,
     }));
   }, [cart]);
 
-  const handleQuantityChange = (uid, value) => {
+  const handleQuantityChange = (uid: string, value: number) => {
     setQuantities((prev) => ({
       ...prev,
-      [uid]: Number(value)
+      [uid]: value,
     }));
   };
 
@@ -208,48 +249,66 @@ export const AddToCart = ({children}) =>{
     return sum + (numericPrice * qty || 0);
   }, 0);
 
-const Order = ()=>{
-  setCart([])
-  setNotification("Successfully Ordered All Items ✅")
-  setTimeout(()=> setNotification(""), 3000);
-}
+  const Order = () => {
+    setCart([]);
+    setNotification("Successfully Ordered All Items ✅");
+    setTimeout(() => setNotification(""), 3000);
+  };
 
   return (
-    <CartContext.Provider value={{
-      cart, 
-      count, 
-      handleCart, 
-      isInCart,
-      setCart,
-      cartWithIds,
-      handleQuantityChange,
-      totalAmount,
-      quantities,
-      setQuantities,
-      Order
-      }}>
+    <CartContext.Provider
+      value={{
+        cart,
+        count,
+        handleCart,
+        isInCart,
+        setCart,
+        cartWithIds,
+        handleQuantityChange,
+        totalAmount,
+        quantities,
+        setQuantities,
+        Order,
+      }}
+    >
       {children}
 
-    {notification && (
-  <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
-    <div className="bg-white/30 dark:bg-black/40 backdrop-blur-md rounded-lg shadow-lg p-4 max-w-sm w-full text-center animate-fade-in">
-      <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">Notification</h2>
-      <p className="text-sm text-gray-700 dark:text-gray-200">{notification}</p>
-    </div>
-  </div>
-)}
+      {notification && (
+        <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+          <div className="bg-white/30 dark:bg-black/40 backdrop-blur-md rounded-lg shadow-lg p-4 max-w-sm w-full text-center animate-fade-in">
+            <h2 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+              Notification
+            </h2>
+            <p className="text-sm text-gray-700 dark:text-gray-200">
+              {notification}
+            </p>
+          </div>
+        </div>
+      )}
+    </CartContext.Provider>
+  );
+};
 
-</CartContext.Provider>
-  )
+export const useCart = (): CartContextType => {
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error("useCart must be used within an AddToCart provider");
+  }
+  return context;
+};
 
-}
-export const useCart = () => useContext(CartContext);
+// ================= Search Context =================
+type SearchContextType = {
+  searchTerm: string;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+};
 
+const SearchContext = createContext<SearchContextType | null>(null);
 
-//search context
-
-export const SearchProvider = ({ children }) => {
-  const [searchTerm, setSearchTerm] = useState("");
+export const SearchProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
   return (
     <SearchContext.Provider value={{ searchTerm, setSearchTerm }}>
@@ -258,4 +317,10 @@ export const SearchProvider = ({ children }) => {
   );
 };
 
-export const useSearch = () => useContext(SearchContext);
+export const useSearch = (): SearchContextType => {
+  const context = useContext(SearchContext);
+  if (!context) {
+    throw new Error("useSearch must be used within a SearchProvider");
+  }
+  return context;
+};

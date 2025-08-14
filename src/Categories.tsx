@@ -1,13 +1,19 @@
-import type { product } from "./typeSet"
-import { FiCamera, FiMonitor, FiWatch, FiHeadphones, FiSmartphone, FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import type { product } from "./typeSet";
+import {
+  FiCamera,
+  FiMonitor,
+  FiWatch,
+  FiHeadphones,
+  FiSmartphone,
+  FiArrowLeft,
+  FiArrowRight,
+} from "react-icons/fi";
 import { GiTShirt, GiSofa } from "react-icons/gi";
-import { useScroll} from './ScrollContext';
 import { LuGamepad } from "react-icons/lu";
+import { useScroll } from "./ScrollContext";
 
-export const Categories = ({products} : product)=>{
-     const { scrollRefs, scrollLeft, scrollRight } = useScroll();
-
-    const categoryIcons = {
+// Make categoryIcons mapping strongly typed
+const categoryIcons: Record<string, React.ElementType> = {
   Phones: FiSmartphone,
   Computers: FiMonitor,
   Clothings: GiTShirt,
@@ -15,38 +21,51 @@ export const Categories = ({products} : product)=>{
   Headphones: FiHeadphones,
   Cameras: FiCamera,
   Watches: FiWatch,
-  Furnitures: GiSofa
+  Furnitures: GiSofa,
 };
 
+export const Categories = ({ products }: product) => {
+  const { scrollRefs, scrollLeft, scrollRight } = useScroll();
 
-    return (
-        <>
-       <section className="categories mt-15">
-            <p className="tag">Categories</p>
+  return (
+    <>
+      <section className="categories mt-15">
+        <p className="tag">Categories</p>
 
-            <div className="intro">
-            <h3 className="font-bold">Browse By Category</h3>
-            <div className="flex gap-3.5">
-        <FiArrowLeft className="rounded-xl bg-gray-200 sm:hidden" onClick={() => scrollLeft('categories')}/>
-            <FiArrowRight className="rounded-xl bg-gray-200 sm:hidden" onClick={() => scrollRight('categories')} />
+        <div className="intro">
+          <h3 className="font-bold">Browse By Category</h3>
+          <div className="flex gap-3.5">
+            <FiArrowLeft
+              className="rounded-xl bg-gray-200 sm:hidden"
+              onClick={() => scrollLeft("categories")}
+            />
+            <FiArrowRight
+              className="rounded-xl bg-gray-200 sm:hidden"
+              onClick={() => scrollRight("categories")}
+            />
+          </div>
         </div>
-             </div>
-        </section>
+      </section>
 
-        <div className="mt-5">
-             <ul className="productList hide-scrollbar"  ref={scrollRefs.categories}>
-            {products.slice(0,8).map((goods)=>{
-                const Icon = categoryIcons[goods.category];
-                return (
-                <li key={goods.id} className="border-2 border-gray-200 text-center p-3"> 
-                     {Icon && <Icon className="text-xl m-auto" />}
-                   <p className="text-[10px]">{goods.category}</p>
-                </li>
-                )
-            })}
-            </ul>
-        </div>
-
-        </>
-    )
-}
+      <div className="mt-5">
+        <ul
+          className="productList hide-scrollbar"
+          ref={scrollRefs.categories}
+        >
+          {products.slice(0, 8).map((goods) => {
+            const Icon = categoryIcons[goods.category];
+            return (
+              <li
+                key={goods.id}
+                className="border-2 border-gray-200 text-center p-3"
+              >
+                {Icon && <Icon className="text-xl m-auto" />}
+                <p className="text-[10px]">{goods.category}</p>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </>
+  );
+};
