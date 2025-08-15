@@ -129,7 +129,7 @@ export const Header = ()=> {
                 <p className="rounded-4xl bg-gray-200 p-3 text-black">Minutes <br/> <span className="date">{timeLeft.minutes} </span></p> 
                  <p className="rounded-4xl bg-gray-200 p-3 text-black">Seconds <br/> <span className="date">{timeLeft.seconds} </span></p>
             </div>
-                   <Link to="/about" className="text-[12px] bg-green-400 text-center w-30 p-3 ">Buy now </Link>
+                   <Link to="/shop" className="text-[12px] bg-green-400 text-center w-30 p-3 ">Buy now </Link>
                 </div>
                 <img src="/Jbl.png" className="max-w-[240px] self-start "/>
             </div>
