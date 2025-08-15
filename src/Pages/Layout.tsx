@@ -65,7 +65,7 @@ export const Layout = () => {
 
             {/* Mobile-only account links */}
             <li className="mt-4 sm:hidden" onClick={() => setNavBar(false)}><Link to="/account">Manage My Account</Link></li>
-            <li className="mt-4 sm:hidden" onClick={() => setNavBar(false)}><Link to="/signup">My Order</Link></li>
+            <li className="mt-4 sm:hidden" onClick={() => setNavBar(false)}><Link to="/cart">My Order</Link></li>
             <li className="mt-4 sm:hidden" onClick={() => setNavBar(false)}><Link to="/signup">My Cancellations</Link></li>
             <li className="mt-4 sm:hidden" onClick={() => setNavBar(false)}><Link to="/shop">Shop</Link></li>
             <li className="mt-4 sm:hidden" onClick={() => setNavBar(false)}><Link to="/signup">Log Out</Link></li>
@@ -118,8 +118,8 @@ export const Layout = () => {
                 {showDropdown && (
                   <div className="manageAccount">
                     <li className="mt-4" onClick={() => setShowDropdown(false)}><Link to="/account">Manage My Account</Link></li>
-                    <li className="mt-4" onClick={() => setShowDropdown(false)}><Link to="/myorder">My Order</Link></li>
-                    <li className="mt-4" onClick={() => setShowDropdown(false)}><Link to="/myorde">My Cancellations</Link></li>
+                    <li className="mt-4" onClick={() => setShowDropdown(false)}><Link to="/cart">My Order</Link></li>
+                    <li className="mt-4" onClick={() => setShowDropdown(false)}><Link to="/my">My Cancellations</Link></li>
                     <li className="mt-4" onClick={() => setShowDropdown(false)}><Link to="/signup">Log Out</Link></li>
                   </div>
                 )}
