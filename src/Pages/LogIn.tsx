@@ -37,7 +37,7 @@ export const Login = () => {
           <input type="password" className="input" placeholder="Password" /> <br />
           <div className="flex flex-col gap-4">
             <div className="bg-red-600 p-1.5 text-center text-white text-[12px]">
-              <input type="submit" value="Log in" />
+             <Link to="/home"> <input type="submit" value="Log in" /> </Link>
             </div>
             <Link to="/login" className="underline text-[9px]">
               Forget Password?

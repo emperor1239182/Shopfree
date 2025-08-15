@@ -39,10 +39,10 @@ export const SignUp = () => {
           <input type="password" className="input" placeholder="Password" /> <br />
 
           <div className="bg-red-600 p-1.5 text-center text-white text-[10px]">
-            <input type="submit" value="Create Account" />
+            <Link to="/login"><input type="submit" value="Create Account" /></Link> 
           </div>
           <div className="border-1 text-[10px] text-center p-1.5 mt-4">
-            <input type="submit" value="Sign up with Google" />
+            <input type="submit" value="Sign up with Google" /> 
           </div>
           <p className="text-[12px] text-center mt-4">
             Already have an account?{" "}
