@@ -62,7 +62,10 @@ type WishlistContextType = {
   handleWishlist: (wish: wishProducts) => void;
   toggleHeart: (id: number) => void;
   clickedItems: number[];
-  moveAllToCart: (handleCart: (order: wishProducts) => void) => void;
+  moveAllToCart: (
+    handleCart: (order: wishProducts) => void,
+    isInCart: (item: wishProducts) => boolean
+  ) => void;
 };
 
 const WishlistContext = createContext<WishlistContextType | null>(null);
@@ -114,8 +117,15 @@ export const Wishlists = ({ children }: ProviderProps) => {
     setTimeout(() => setNotification(""), 1000);
   };
 
-  const moveAllToCart = (handleCart: (order: wishProducts) => void) => {
-    wishlist.forEach((item) => handleCart(item));
+  const moveAllToCart = (
+    handleCart: (order: wishProducts) => void,
+    isInCart: (item: wishProducts) => boolean
+  ) => {
+    wishlist.forEach((item) => {
+      if (!isInCart(item)) {
+        handleCart(item);
+      }
+    });
     setWishlist([]);
     setCount(0);
     setNotification("All items moved to cart successfully!");

@@ -12,7 +12,7 @@ export const Wishlist = () => {
         {wishlist.length > 0? 
         <p
           className="border-1 border-gray-400 text-[12px] font-bold text-center p-2 cursor-pointer hover:bg-gray-100"
-          onClick={() => moveAllToCart(handleCart)}
+          onClick={() => moveAllToCart(handleCart, isInCart)}
         >
           Move All To Bag
         </p> : ""
