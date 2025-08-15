@@ -24,7 +24,7 @@ export const Bill = ({ totalAmount }: BillProps) => {
         <p className="font-bold">${totalAmount.toFixed(2)}</p>
       </div>
 
-      <button className="bg-red-500 text-[9px] w-[120px] text-center rounded text-white p-2 mt-4 self-center">
+      <button className="button">
         <Link to="/checkout">Proceed To Checkout</Link>
       </button>
     </div>

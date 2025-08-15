@@ -13,5 +13,5 @@ export type product = {
 export type wishProducts = {
     image: string
     name: string
-    price: string
+    price: Number
 }

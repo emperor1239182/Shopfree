@@ -216,5 +216,8 @@ html, body {
         .bill{
             @apply  w-[250px] border-2 border-gray-300 p-2 mt-8 flex flex-col gap-2 justify-center
         }
+        .button{
+            @apply bg-red-500 text-[9px] w-[120px] text-center rounded text-white p-2 mt-4 self-center
+        }
 }
 

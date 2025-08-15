@@ -5,9 +5,9 @@ import {
   useState,
   useEffect,
   useMemo,
-  ReactNode,
 } from "react";
 import type { wishProducts } from "./typeSet";
+import type { ReactNode } from "react";
 
 // ================= Scroll Context =================
 type ScrollRefs = {
@@ -20,11 +20,11 @@ type ScrollContextType = {
   scrollRight: (id: keyof ScrollRefs) => void;
 };
 
+type ProviderProps = { children: ReactNode };
+
 const ScrollContext = createContext<ScrollContextType | null>(null);
 
-export const ScrollProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
+export const ScrollProvider = ({ children }: ProviderProps) => {
   const scrollRefs: ScrollRefs = {
     flashSales: useRef<HTMLUListElement>(null),
     ourProducts: useRef<HTMLUListElement>(null),
@@ -67,7 +67,7 @@ type WishlistContextType = {
 
 const WishlistContext = createContext<WishlistContextType | null>(null);
 
-export const Wishlists: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const Wishlists = ({ children }: ProviderProps) => {
   const [wishlist, setWishlist] = useState<wishProducts[]>(() => {
     const storedWishes = localStorage.getItem("wishlist");
     return storedWishes ? JSON.parse(storedWishes) : [];
@@ -178,7 +178,7 @@ type CartContextType = {
 
 const CartContext = createContext<CartContextType | null>(null);
 
-export const AddToCart: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const AddToCart = ({ children }: ProviderProps) => {
   const [cart, setCart] = useState<wishProducts[]>(() => {
     const storedCart = localStorage.getItem("cart");
     return storedCart ? JSON.parse(storedCart) : [];
@@ -305,9 +305,7 @@ type SearchContextType = {
 
 const SearchContext = createContext<SearchContextType | null>(null);
 
-export const SearchProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
+export const SearchProvider = ({ children }: ProviderProps) => {
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   return (

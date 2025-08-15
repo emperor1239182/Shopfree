@@ -30,7 +30,7 @@ export const Cart = () => {
           </div>
 
           {cartWithIds.map((item, index) => (
-            <ScrollSection delay={0.1} key={item._uid || index}>
+            <ScrollSection  key={item._uid || index}>
               <div className="invoice">
                 <img src={item.image} alt="" className="w-10 h-10" />
                 <p>{item.price}</p>

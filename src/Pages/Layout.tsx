@@ -79,7 +79,6 @@ export const Layout = () => {
                 className="placeholder:text-[8px] w-30 text-black"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="placeholder:text-[8px] w-30 text-black" 
                 />
 
                 <FaMagnifyingGlass />
@@ -120,7 +119,7 @@ export const Layout = () => {
                   <div className="manageAccount">
                     <li className="mt-4" onClick={() => setShowDropdown(false)}><Link to="/account">Manage My Account</Link></li>
                     <li className="mt-4" onClick={() => setShowDropdown(false)}><Link to="/myorder">My Order</Link></li>
-                    <li className="mt-4" onClick={() => setShowDropdown(false)}><Link to="/myorder">My Cancellations</Link></li>
+                    <li className="mt-4" onClick={() => setShowDropdown(false)}><Link to="/myorde">My Cancellations</Link></li>
                     <li className="mt-4" onClick={() => setShowDropdown(false)}><Link to="/signup">Log Out</Link></li>
                   </div>
                 )}

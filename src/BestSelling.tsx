@@ -32,7 +32,7 @@ export const BestSellingProducts = ({ products }: product) => {
         <ul className="hide-scrollbar productList">
           {products
             .slice(1, 10)
-            .toReversed()
+            .reverse()
             .filter((goods: allProducts) =>
               goods.name.toLowerCase().includes(searchTerm.toLowerCase())
             )
